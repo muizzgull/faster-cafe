@@ -2,188 +2,102 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>Your Cart | FASTER CAFE</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
         tailwind.config = {
-          theme: {
-            extend: {
-              colors: {
-                red: {
-                  600: '#E72229',
-                },
-              },
-            },
-          },
+          theme: { extend: { colors: { red: { 600: '#E72229' } } } }
         }
     </script>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;900&display=swap" rel="stylesheet">
     <style>
-        body { font-family: 'Poppins', sans-serif; }
+        body { font-family: 'Poppins', sans-serif; overflow-x: hidden; }
         input::placeholder, textarea::placeholder { color: #9ca3af; font-weight: 600; }
     </style>
 </head>
-<body class="bg-gray-50 pt-24 pb-20 px-6">
-
+<body class="bg-gray-50 pt-24 pb-20 px-4 md:px-6">
     <div id="navbar-placeholder"></div>
-
-    <main class="max-w-3xl mx-auto space-y-8">
-        
-        <div class="bg-white p-8 rounded-[40px] shadow-sm border border-gray-100">
-            <h2 class="text-2xl font-black mb-6 italic uppercase flex items-center gap-3">
-                <span class="bg-[#E72229] text-white w-8 h-8 rounded-full flex items-center justify-center text-sm not-italic">1</span>
+    <main class="max-w-3xl mx-auto space-y-6 md:space-y-8">
+        <div class="bg-white p-6 md:p-8 rounded-[30px] md:rounded-[40px] shadow-sm border border-gray-100">
+            <h2 class="text-xl md:text-2xl font-black mb-6 italic uppercase flex items-center gap-3">
+                <span class="bg-[#E72229] text-white w-7 h-7 md:w-8 md:h-8 rounded-full flex items-center justify-center text-xs not-italic">1</span>
                 Your Selection
             </h2>
-            
             <div id="cart-items" class="space-y-4"></div>
-
             <div class="mt-8 pt-6 border-t-4 border-black flex justify-between items-center font-black">
-                <span class="text-gray-400 uppercase tracking-widest text-sm">Total Amount</span>
-                <span id="total-price" class="text-4xl text-[#E72229]">Rs. 0</span>
+                <span class="text-gray-400 uppercase tracking-widest text-[10px] md:text-sm">Total Amount</span>
+                <span id="total-price" class="text-2xl md:text-4xl text-[#E72229]">Rs. 0</span>
             </div>
         </div>
 
-        <div id="checkout-section" class="bg-white p-8 rounded-[40px] shadow-sm border border-gray-100 hidden">
-            <h2 class="text-2xl font-black mb-6 italic uppercase flex items-center gap-3">
-                <span class="bg-[#E72229] text-white w-8 h-8 rounded-full flex items-center justify-center text-sm not-italic">2</span>
+        <div id="checkout-section" class="bg-white p-6 md:p-8 rounded-[30px] md:rounded-[40px] shadow-sm border border-gray-100 hidden">
+            <h2 class="text-xl md:text-2xl font-black mb-6 italic uppercase flex items-center gap-3">
+                <span class="bg-[#E72229] text-white w-7 h-7 md:w-8 md:h-8 rounded-full flex items-center justify-center text-xs not-italic">2</span>
                 Delivery Details
             </h2>
-            
-            <form id="checkout-form" class="space-y-5">
-                <div class="grid grid-cols-1 gap-5">
-                    <input type="text" id="name" placeholder="Full Name" required 
-                        class="w-full p-5 bg-gray-50 rounded-3xl outline-none focus:ring-2 ring-[#E72229] font-bold transition-all">
-                    
-                    <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
-                        <input type="tel" id="phone" placeholder="Phone (e.g. 03001234567)" required 
-                            class="p-5 bg-gray-50 rounded-3xl outline-none focus:ring-2 ring-[#E72229] font-bold transition-all">
-                        <input type="email" id="email" placeholder="Email Address" required 
-                            class="p-5 bg-gray-50 rounded-3xl outline-none focus:ring-2 ring-[#E72229] font-bold transition-all">
-                    </div>
-
-                    <textarea id="address" placeholder="Complete Delivery Address (House #, Street, Area)" required rows="3"
-                        class="w-full p-5 bg-gray-50 rounded-3xl outline-none focus:ring-2 ring-[#E72229] font-bold transition-all resize-none"></textarea>
+            <form id="checkout-form" class="space-y-4 md:space-y-5">
+                <input type="text" id="name" placeholder="Full Name" required class="w-full p-4 md:p-5 bg-gray-50 rounded-2xl md:rounded-3xl outline-none focus:ring-2 ring-[#E72229] font-bold text-sm">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-5">
+                    <input type="tel" id="phone" placeholder="Phone (e.g. 03001234567)" required class="p-4 md:p-5 bg-gray-50 rounded-2xl md:rounded-3xl outline-none focus:ring-2 ring-[#E72229] font-bold text-sm">
+                    <input type="email" id="email" placeholder="Email Address" required class="p-4 md:p-5 bg-gray-50 rounded-2xl md:rounded-3xl outline-none focus:ring-2 ring-[#E72229] font-bold text-sm">
                 </div>
-
-                <button type="submit" class="w-full bg-black text-white py-6 rounded-[30px] font-black text-xl hover:bg-[#E72229] transition-all shadow-xl uppercase italic tracking-tighter">
-                    Proceed to Checkout
-                </button>
+                <textarea id="address" placeholder="Delivery Address" required rows="3" class="w-full p-4 md:p-5 bg-gray-50 rounded-2xl md:rounded-3xl outline-none focus:ring-2 ring-[#E72229] font-bold text-sm resize-none"></textarea>
+                <button type="submit" class="w-full bg-black text-white py-5 md:py-6 rounded-[25px] md:rounded-[30px] font-black text-lg md:text-xl hover:bg-[#E72229] transition-all shadow-xl uppercase italic">Proceed</button>
             </form>
         </div>
     </main>
-
     <script src="cart.js"></script>
-    
     <script>
-        // --- CORE FUNCTIONS ---
-        function getCartData() {
-            return JSON.parse(localStorage.getItem('faster_cafe_cart')) || [];
-        }
-
+        function getCartData() { return JSON.parse(localStorage.getItem('faster_cafe_cart')) || []; }
         function renderCart() {
             const currentCart = getCartData();
             const container = document.getElementById('cart-items');
             const totalEl = document.getElementById('total-price');
             const checkoutSection = document.getElementById('checkout-section');
-            
             if (!container) return;
-
             if (currentCart.length === 0) {
-                container.innerHTML = `
-                    <div class="text-center py-12">
-                        <p class="text-gray-400 font-black uppercase tracking-widest text-xs">Your cart is empty</p>
-                        <a href="index.html" class="text-[#E72229] font-black italic underline mt-4 inline-block text-lg">Back to Menu</a>
-                    </div>`;
+                container.innerHTML = `<div class="text-center py-12"><p class="text-gray-400 font-black uppercase text-xs">Cart Empty</p><a href="index.html" class="text-[#E72229] font-black italic underline mt-4 inline-block">Back to Menu</a></div>`;
                 totalEl.innerText = "Rs. 0";
                 checkoutSection.classList.add('hidden');
                 return;
             }
-
             checkoutSection.classList.remove('hidden');
-            
             container.innerHTML = currentCart.map((item, index) => `
-                <div class="bg-gray-50 p-6 rounded-[35px] border border-gray-100">
+                <div class="bg-gray-50 p-4 md:p-6 rounded-[25px] md:rounded-[35px] border border-gray-100">
                     <div class="flex flex-col sm:flex-row items-center justify-between gap-4">
-                        <div class="flex items-center gap-5">
-                            <img src="${item.image}" class="w-16 h-16 object-contain" onerror="this.src='https://via.placeholder.com/100'">
+                        <div class="flex items-center gap-4">
+                            <img src="${item.image}" class="w-12 h-12 md:w-16 md:h-16 object-contain">
                             <div>
-                                <h4 class="font-black uppercase italic text-md leading-tight">${item.name}</h4>
-                                <p class="text-[#E72229] font-black text-sm">Rs. ${item.price}</p>
+                                <h4 class="font-black uppercase italic text-xs md:text-md leading-tight">${item.name}</h4>
+                                <p class="text-[#E72229] font-black text-xs md:text-sm">Rs. ${item.price}</p>
                             </div>
                         </div>
-
                         <div class="flex items-center gap-4">
                             <div class="flex items-center bg-white rounded-full border border-gray-200 p-1">
-                                <button onclick="localUpdateQty(${index}, -1)" class="w-8 h-8 flex items-center justify-center font-black hover:text-[#E72229]">-</button>
-                                <span class="font-black text-sm w-6 text-center">${item.quantity}</span>
-                                <button onclick="localUpdateQty(${index}, 1)" class="w-8 h-8 flex items-center justify-center font-black hover:text-[#E72229]">+</button>
+                                <button onclick="localUpdateQty(${index}, -1)" class="w-8 h-8 flex items-center justify-center font-black">-</button>
+                                <span class="font-black text-xs w-6 text-center">${item.quantity}</span>
+                                <button onclick="localUpdateQty(${index}, 1)" class="w-8 h-8 flex items-center justify-center font-black">+</button>
                             </div>
-                            <button onclick="localRemoveItem(${index})" class="text-gray-300 hover:text-[#E72229] transition">
-                                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" />
-                                </svg>
+                            <button onclick="localRemoveItem(${index})" class="text-gray-300 hover:text-[#E72229]">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 md:h-6 md:w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" /></svg>
                             </button>
                         </div>
                     </div>
-                    
-                    <div class="mt-4">
-                        <input type="text" 
-                            placeholder="Special instructions (e.g. No Mayo, Extra Spicy)" 
-                            class="w-full text-xs bg-white border border-gray-200 rounded-2xl px-5 py-3 outline-none focus:ring-1 ring-[#E72229] font-bold"
-                            value="${item.note || ''}" 
-                            onchange="updateNote(${index}, this.value)">
-                    </div>
+                    <input type="text" placeholder="Note (e.g. No Mayo)" class="mt-4 w-full text-[10px] md:text-xs bg-white border rounded-xl px-4 py-2 font-bold" value="${item.note || ''}" onchange="updateNote(${index}, this.value)">
                 </div>
             `).join('');
-
-            const total = currentCart.reduce((sum, item) => sum + (item.price * item.quantity), 0);
-            totalEl.innerText = `Rs. ${total}`;
+            totalEl.innerText = `Rs. ${currentCart.reduce((sum, item) => sum + (item.price * item.quantity), 0)}`;
         }
-
-        // --- HANDLERS ---
-        window.updateNote = function(index, note) {
-            let currentCart = getCartData();
-            currentCart[index].note = note;
-            localStorage.setItem('faster_cafe_cart', JSON.stringify(currentCart));
-        };
-
-        window.localUpdateQty = function(index, change) {
-            let currentCart = getCartData();
-            currentCart[index].quantity += change;
-            if (currentCart[index].quantity < 1) currentCart.splice(index, 1);
-            localStorage.setItem('faster_cafe_cart', JSON.stringify(currentCart));
-            renderCart();
-            if (typeof injectNavbar === 'function') injectNavbar();
-        };
-
-        window.localRemoveItem = function(index) {
-            let currentCart = getCartData();
-            currentCart.splice(index, 1);
-            localStorage.setItem('faster_cafe_cart', JSON.stringify(currentCart));
-            renderCart();
-            if (typeof injectNavbar === 'function') injectNavbar();
-        };
-
-        // --- NAVIGATION TO CHECKOUT ---
+        window.updateNote = (index, note) => { let c = getCartData(); c[index].note = note; localStorage.setItem('faster_cafe_cart', JSON.stringify(c)); };
+        window.localUpdateQty = (index, change) => { let c = getCartData(); c[index].quantity += change; if (c[index].quantity < 1) c.splice(index, 1); localStorage.setItem('faster_cafe_cart', JSON.stringify(c)); renderCart(); injectNavbar(); };
+        window.localRemoveItem = (index) => { let c = getCartData(); c.splice(index, 1); localStorage.setItem('faster_cafe_cart', JSON.stringify(c)); renderCart(); injectNavbar(); };
         document.getElementById('checkout-form').addEventListener('submit', (e) => {
             e.preventDefault();
-            const userData = {
-                name: document.getElementById('name').value,
-                phone: document.getElementById('phone').value,
-                email: document.getElementById('email').value,
-                address: document.getElementById('address').value
-            };
-            // Store user details for the confirmation page
-            localStorage.setItem('faster_cafe_user', JSON.stringify(userData));
-            // Move to the actual confirmation page
+            localStorage.setItem('faster_cafe_user', JSON.stringify({ name: document.getElementById('name').value, phone: document.getElementById('phone').value, email: document.getElementById('email').value, address: document.getElementById('address').value }));
             window.location.href = 'checkout.html';
         });
-
-        document.addEventListener('DOMContentLoaded', () => {
-            if (typeof injectNavbar === 'function') injectNavbar();
-            renderCart();
-        });
+        document.addEventListener('DOMContentLoaded', () => { injectNavbar(); renderCart(); });
     </script>
 </body>
 </html>
