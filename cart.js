@@ -26,31 +26,35 @@ const products = [
     { id: 201, name: "Chicken Paratha Roll", price: 290, image: "chicken-paratha.png", category: "Paratha Rolls" },
     { id: 202, name: "Zinger Paratha Roll", price: 400, image: "chicken-paratha.png", category: "Paratha Rolls" },
     { id: 203, name: "Grilled Paratha Roll", price: 430, image: "chicken-paratha.png", category: "Paratha Rolls" },
-    { id: 2001, name: "Deal 1: <br> Patty Burger + Fries + Drink", price: 430, image: "deal1.PNG", category: "Deals" },
-    { id: 2002, name: "Deal 2: <br> Zinger Brger + Fries + Drink", price: 550, image: "deal2.PNG", category: "Deals" },
-    { id: 2003, name: "Deal 3: <br> Grilled Burger + Fries + Drink", price: 650, image: "deal3.PNG", category: "Deals" },
-    { id: 2004, name: "Deal 4: <br> 2 Zinger Burgers + Fries + 2 Drinks", price: 990, image: "deal4.PNG", category: "Deals" },
-    { id: 2005, name: "Deal 5: <br> 2 Grilled Burgers + Fries + 2 Drinks", price: 1150, image: "deal5.PNG", category: "Deals" },
-    { id: 2006, name: "Deal 6: <br> 4 Zinger Burgers + Fries + 1.5L", price: 1850, image: "deal6.PNG", category: "Deals" },
-    { id: 3001, name: "Special Deal 1: <br> 2 Pizza Fries + 2 Drinks", price: 1050, image: "special-deal1.jpeg", category: "Special Deals" },
-    { id: 3002, name: "Special Deal 2: <br> 2 Small Pizzas + 2 Drinks", price: 1050, image: "special-deal2.jpeg", category: "Special Deals" },
-    { id: 3003, name: "Special Deal 3: <br> 3 Crunch Burgers + 1L Drink ", price: 1050, image: "special-deal3.jpeg", category: "Special Deals" },
-    { id: 3004, name: "Special Deal 4: <br> 4 Shawarmas + 1L Drink", price: 1050, image: "special-deal4.jpeg", category: "Special Deals" },
-    { id: 3005, name: "Special Deal 5: <br> 2 Patty Burgers + 1 Fries", price: 590, image: "special-deal5.jpeg", category: "Special Deals" },
-    { id: 3006, name: "Special Deal 6: <br> 1 Monster Fillet + Drink", price: 650, image: "special-deal6.jpeg", category: "Special Deals" },
-    { id: 4001, name: "Pizza Deal 1: <br> Med Pizza + Drink", price: 1090, image: "pizza-deal1.PNG", category: "Pizza Deals" },
-    { id: 4002, name: "Pizza Deal 2: <br> Large Pizza + 1L", price: 1590, image: "pizza-deal2.PNG", category: "Pizza Deals" },
-    { id: 4003, name: "Pizza Deal 3: <br> 2 Med + 5 Wings + 1.5L", price: 2590, image: "pizza-deal3.PNG", category: "Pizza Deals" },
-    { id: 4004, name: "Pizza Deal 4: <br> XL + 10 Wings + 1.5L", price: 2820, image: "pizza-deal4.PNG", category: "Pizza Deals" },
-    { id: 4005, name: "Pizza Deal 5: <br> 2 Large + 1.5L", price: 2990, image: "pizza-deal5.PNG", category: "Pizza Deals" },
-    { id: 4006, name: "Pizza Deal 6: <br> Small Pizza + Drink", price: 650, image: "pizza-deal1.PNG", category: "Pizza Deals" },
+    { id: 2001, name: "Deal 1: Patty Burger + Fries + Drink", price: 430, image: "deal1.PNG", category: "Deals" },
+    { id: 2002, name: "Deal 2: Zinger Brger + Fries + Drink", price: 550, image: "deal2.PNG", category: "Deals" },
+    { id: 2003, name: "Deal 3: Grilled Burger + Fries + Drink", price: 650, image: "deal3.PNG", category: "Deals" },
+    { id: 2004, name: "Deal 4: 2 Zinger Burgers + Fries + 2 Drinks", price: 990, image: "deal4.PNG", category: "Deals" },
+    { id: 2005, name: "Deal 5: 2 Grilled Burgers + Fries + 2 Drinks", price: 1150, image: "deal5.PNG", category: "Deals" },
+    { id: 2006, name: "Deal 6: 4 Zinger Burgers + Fries + 1.5L", price: 1850, image: "deal6.PNG", category: "Deals" },
+    { id: 3001, name: "Special Deal 1: 2 Pizza Fries + 2 Drinks", price: 1050, image: "special-deal1.jpeg", category: "Special Deals" },
+    { id: 3002, name: "Special Deal 2: 2 Small Pizzas + 2 Drinks", price: 1050, image: "special-deal2.jpeg", category: "Special Deals" },
+    { id: 3003, name: "Special Deal 3: 3 Crunch Burgers + 1L Drink ", price: 1050, image: "special-deal3.jpeg", category: "Special Deals" },
+    { id: 3004, name: "Special Deal 4: 4 Shawarmas + 1L Drink", price: 1050, image: "special-deal4.jpeg", category: "Special Deals" },
+    { id: 3005, name: "Special Deal 5: 2 Patty Burgers + 1 Fries", price: 590, image: "special-deal5.jpeg", category: "Special Deals" },
+    { id: 3006, name: "Special Deal 6: 1 Monster Fillet + Drink", price: 650, image: "special-deal6.jpeg", category: "Special Deals" },
+    { id: 4001, name: "Pizza Deal 1: Med Pizza + Drink", price: 1090, image: "pizza-deal1.PNG", category: "Pizza Deals" },
+    { id: 4002, name: "Pizza Deal 2: Large Pizza + 1L", price: 1590, image: "pizza-deal2.PNG", category: "Pizza Deals" },
+    { id: 4003, name: "Pizza Deal 3: 2 Med + 5 Wings + 1.5L", price: 2590, image: "pizza-deal3.PNG", category: "Pizza Deals" },
+    { id: 4004, name: "Pizza Deal 4: XL + 10 Wings + 1.5L", price: 2820, image: "pizza-deal4.PNG", category: "Pizza Deals" },
+    { id: 4005, name: "Pizza Deal 5: 2 Large + 1.5L", price: 2990, image: "pizza-deal5.PNG", category: "Pizza Deals" },
+    { id: 4006, name: "Pizza Deal 6: Small Pizza + Drink", price: 650, image: "pizza-deal1.PNG", category: "Pizza Deals" },
     { id: 251, name: "Chicken Wrap", price: 550, image: "chicken-wrap.png", category: "Wraps" },
     { id: 252, name: "Grilled Fillet Wrap", price: 550, image: "chicken-wrap.png", category: "Wraps" },
     { id: 253, name: "Breaded Fillet Wrap", price: 490, image: "chicken-wrap.png", category: "Wraps" },
     { id: 451, name: "Plain Fries", price: 250, image: "fries.PNG", category: "Fries" },
     { id: 452, name: "Loaded Fries", price: 650, image: "pizza-fries.PNG", category: "Fries" },
     { id: 453, name: "Pizza Fries", price: 490, image: "pizza-fries.PNG", category: "Fries" },
+    // Split Hot Wings Section
     { id: 601, name: "Chicken Hot Wings", price: 350, image: "hot-wings.PNG", category: "Hot Wings" },
+    { id: 602, name: "Oven Baked Wings", price: 350, image: "hot-wings.PNG", category: "Hot Wings" },
+    { id: 603, name: "Honey Wings", price: 390, image: "hot-wings.PNG", category: "Hot Wings" },
+    { id: 604, name: "Malai Wings", price: 390, image: "hot-wings.PNG", category: "Hot Wings" },
     { id: 701, name: "Chicken Nuggets", price: 300, image: "nuggets.PNG", category: "Nuggets" },
     { id: 703, name: "Chicken Strips", price: 420, image: "chicken-strips.PNG", category: "Chicken Strips" },
     { id: 801, name: "Mint Margarita", price: 250, image: "mint-margaritta.png", category: "Drinks" },
@@ -70,7 +74,7 @@ function injectNavbar() {
     navPlaceholder.innerHTML = `
     <header class="fixed top-0 left-0 w-full bg-white/90 backdrop-blur-md z-[1000] border-b border-gray-100 px-4 md:px-6 py-4">
         <div class="max-w-7xl mx-auto flex justify-between items-center">
-            <img class="w-48" src="logo.png">
+            <img class="w-32 md:w-48" src="logo.png">
             <nav class="flex gap-4 md:gap-8 items-center font-bold text-[10px] md:text-xs uppercase tracking-widest">
                 <a href="index.html" class="hover:text-[#E72229] transition">Home</a>
                 <a href="orders.html" class="hover:text-[#E72229] transition">Orders</a>
@@ -86,23 +90,21 @@ function displayProducts(category = 'All') {
     const grid = document.getElementById('product-grid');
     if (!grid) return;
 
-    // Correctly identifying the active button
     document.querySelectorAll('.filter-btn').forEach(btn => {
-        // We clean the text to remove emojis like 🔥 for comparison
         const bText = btn.innerText.replace(/[^\x00-\x7F]/g, "").trim().toLowerCase();
         const sCat = category.toLowerCase();
         
         btn.classList.remove('active-cat');
         btn.classList.add('text-gray-400');
 
-        // Precise matching logic
         const isMatch = 
             bText === sCat || 
             (sCat === 'signature pizza' && bText === 'signature') || 
             (sCat === 'paratha rolls' && bText === 'paratha') || 
             (sCat === 'special deals' && bText === 'special') || 
             (sCat === 'hot wings' && bText === 'wings') ||
-            (sCat === 'deals' && bText === 'deals'); // Exact match only
+            (sCat === 'chicken strips' && bText === 'strips') || // Fixed Strips nav fix
+            (sCat === 'deals' && bText === 'deals');
 
         if (isMatch) {
             btn.classList.add('active-cat');
@@ -116,7 +118,8 @@ function displayProducts(category = 'All') {
     cats.forEach(cat => {
         const filtered = products.filter(p => p.category === cat);
         if (filtered.length > 0) {
-            htmlContent += `<div class="col-span-full mt-6 md:mt-10 mb-4 md:mb-6"><h2 class="text-xl md:text-3xl font-black italic uppercase border-l-4 md:border-l-8 border-[#E72229] pl-3 md:pl-4 text-black">${cat}</h2></div>`;
+            // mt-28 added to heading to prevent overlapping with fixed category nav on mobile
+            htmlContent += `<div class="col-span-full mt-28 md:mt-10 mb-4 md:mb-6"><h2 class="text-xl md:text-3xl font-black italic uppercase border-l-4 md:border-l-8 border-[#E72229] pl-3 md:pl-4 text-black">${cat}</h2></div>`;
             htmlContent += filtered.map(product => {
                 const needsModal = ["Pizza", "Signature Pizza", "Hot Wings", "Nuggets", "Chicken Strips"].includes(product.category) || (product.category === "Fries" && product.name !== "Loaded Fries");
                 return `
@@ -146,17 +149,33 @@ function handleAddToCart(productId) {
 }
 
 function openModal(product) {
-    currentItem = product; const modal = document.getElementById('pizza-modal'), optionsContainer = document.getElementById('pizza-options');
+    currentItem = product; 
+    const modal = document.getElementById('pizza-modal'), optionsContainer = document.getElementById('pizza-options');
     document.getElementById('modal-pizza-name').innerText = product.name;
     let opt = "";
-    if (product.category === "Pizza") opt = `${renderOption('Small', 590)} ${renderOption('Medium', 1090, true)} ${renderOption('Large', 1590)} ${renderOption('X-Large', 2190)}`;
-    else if (product.category === "Signature Pizza") opt = `${renderOption('Medium', 1150, true)} ${renderOption('Large', 1650)} ${renderOption('X-Large', 2250)}`;
-    else if (product.category === "Hot Wings") opt = product.name.includes("Honey") || product.name.includes("Malai") ? `${renderOption('Small', 390, true)} ${renderOption('Large', 790)}` : `${renderOption('5 Pcs', product.price, true)} ${renderOption('10 Pcs', 690)}`;
-    else if (product.category === "Fries") opt = product.name === "Pizza Fries" ? `${renderOption('Regular', 490, true)} ${renderOption('Large', 790)}` : `${renderOption('Regular', 250, true)} ${renderOption('Large', 350)}`;
-    else if (product.category === "Nuggets") opt = `${renderOption('5 Pieces', 350, true)} ${renderOption('10 Pieces', 650)}`;
-    else if (product.category === "Chicken Strips") opt = `${renderOption('3 Pieces', 450, true)} ${renderOption('5 Pieces', 690)}`;
+    
+    if (product.category === "Pizza") {
+        opt = `${renderOption('Small', 590)} ${renderOption('Medium', 1090, true)} ${renderOption('Large', 1590)} ${renderOption('X-Large', 2190)}`;
+    } else if (product.category === "Signature Pizza") {
+        opt = `${renderOption('Medium', 1150, true)} ${renderOption('Large', 1650)} ${renderOption('X-Large', 2250)}`;
+    } else if (product.category === "Hot Wings") {
+        // Specific Pricing Logic for the 4 Wing types
+        if (product.name.includes("Honey") || product.name.includes("Malai")) {
+            opt = `${renderOption('5 Pcs', 390, true)} ${renderOption('10 Pcs', 790)}`;
+        } else {
+            opt = `${renderOption('5 Pcs', 350, true)} ${renderOption('10 Pcs', 690)}`;
+        }
+    } else if (product.category === "Fries") {
+        opt = product.name === "Pizza Fries" ? `${renderOption('Regular', 490, true)} ${renderOption('Large', 790)}` : `${renderOption('Regular', 250, true)} ${renderOption('Large', 350)}`;
+    } else if (product.category === "Nuggets") {
+        opt = `${renderOption('5 Pieces', 350, true)} ${renderOption('10 Pieces', 650)}`;
+    } else if (product.category === "Chicken Strips") {
+        opt = `${renderOption('3 Pieces', 450, true)} ${renderOption('5 Pieces', 690)}`;
+    }
+    
     optionsContainer.innerHTML = opt;
-    modal.classList.replace('hidden', 'flex'); setTimeout(() => modal.querySelector('.modal-content').classList.remove('scale-90', 'opacity-0'), 10);
+    modal.classList.replace('hidden', 'flex'); 
+    setTimeout(() => modal.querySelector('.modal-content').classList.remove('scale-90', 'opacity-0'), 10);
 }
 
 function renderOption(label, price, checked = false) {

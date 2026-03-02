@@ -29,8 +29,7 @@
         .no-scrollbar::-webkit-scrollbar { display: none; }
         .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
         
-        /* Category Nav Styling */
-        .filter-btn { transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); }
+        .filter-btn { transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); white-space: nowrap; }
         .filter-btn:hover:not(.active-cat) { background-color: rgba(0,0,0,0.05); color: #E72229; }
         .active-cat { background-color: #000 !important; color: #fff !important; }
     </style>
@@ -41,12 +40,9 @@
 
     <div class="relative top-[72px] w-full z-[80]">
         <div class="max-w-7xl mx-auto px-4 sm:px-6">
-            <div class="bg-gradient-to-r from-red-100 via-white mt-5 to-red-100 border-x-2 border-b-2 border-red-200 rounded-b-[30px] py-5 px-6 text-center shadow-md">
-                <p class="flex items-center justify-center gap-3 text-xs md:text-sm font-black text-red-600 uppercase tracking-wide">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 animate-pulse" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" />
-                    </svg>
-                    <span>Note: &nbsp; Some images may not be of our restaurant & some images may not represent that item & some images may only be for illustration & one image may be used for multiple items.</span>
+            <div class="bg-gradient-to-r from-red-100 via-white to-red-100 border-x-2 border-b-2 border-red-200 rounded-b-[30px] py-5 px-6 text-center shadow-md">
+                <p class="text-[10px] md:text-sm font-black text-red-600 uppercase tracking-wide">
+                    Note: Some images may be for illustration & one image may be used for multiple items.
                 </p>
             </div>
         </div>
@@ -56,9 +52,7 @@
         <div class="bg-black/90 text-white px-10 py-5 rounded-[30px] shadow-2xl font-black italic flex items-center gap-4 border border-white/10">
             <span>Item Added!</span>
             <div class="w-8 h-8 bg-red-600 rounded-full flex items-center justify-center">
-                <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7" />
-                </svg>
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7" /></svg>
             </div>
         </div>
     </div>
@@ -67,9 +61,7 @@
         <div class="modal-content bg-white w-full max-w-md rounded-[40px] shadow-2xl overflow-hidden transform scale-90 opacity-0 transition-all duration-300">
             <div class="relative p-8 pb-4">
                 <button onclick="closePizzaModal()" class="absolute top-6 right-6 text-gray-400 hover:text-black">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M6 18L18 6M6 6l12 12" />
-                    </svg>
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M6 18L18 6M6 6l12 12" /></svg>
                 </button>
                 <span class="text-red-600 font-black text-[10px] uppercase tracking-widest">Customize Your Order</span>
                 <h2 id="modal-pizza-name" class="text-3xl font-black italic uppercase leading-tight mb-4">Item Name</h2>
@@ -88,7 +80,7 @@
                 <a href="#menu" class="bg-black text-white px-10 py-5 rounded-2xl font-black text-lg hover:bg-red-600 transition inline-block shadow-2xl">EXPLORE MENU</a>
             </div>
             <div class="relative flex justify-center lg:justify-end">
-                <img src="doube-decker-burger.PNG" class="w-84 max-w-md floating drop-shadow-2xl">
+                <img src="doube-decker-burger.png" class="w-84 max-w-md floating drop-shadow-2xl">
             </div>
         </div>
     </section>
@@ -98,12 +90,12 @@
             <h2 class="text-5xl font-black italic uppercase leading-none text-black">Our <span class="text-red-600"> Menu</span></h2>
         </div>
 
-        <div class="relative group max-w-5xl mx-auto mb-16 top-24 z-50">
-            <button onclick="scrollCats(-200)" class="absolute -left-4 top-1/2 -translate-y-1/2 z-[60] bg-white shadow-lg border border-gray-100 w-10 h-10 rounded-full flex items-center justify-center text-black hover:text-red-600 transition opacity-0 group-hover:opacity-100 hidden md:flex">
+        <div class="relative group max-w-5xl mx-auto mb-16 top-28 z-50">
+            <button onclick="scrollCats(-200)" class="absolute -left-4 top-1/2 -translate-y-1/2 z-[60] bg-white shadow-lg border border-gray-100 w-10 h-10 rounded-full flex items-center justify-center text-black hover:text-red-600 transition">
                 <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M15 19l-7-7 7-7" /></svg>
             </button>
 
-            <div id="cat-scroll" class="flex-1 flex overflow-x-auto no-scrollbar gap-2 bg-gray-100/80 backdrop-blur-md p-2 rounded-[35px] border border-gray-200 scroll-smooth">
+            <div id="cat-scroll" class="flex-1 flex overflow-x-auto no-scrollbar gap-2 bg-gray-100/80 backdrop-blur-md p-2 rounded-[35px] border border-gray-200 scroll-smooth mx-8">
                 <button onclick="displayProducts('All')" class="filter-btn active-cat px-6 py-2 rounded-full text-[10px] font-black uppercase">All</button>
                 <button onclick="displayProducts('Deals')" class="filter-btn text-gray-400 px-6 py-2 rounded-full text-[10px] font-black uppercase">Deals 🔥</button>
                 <button onclick="displayProducts('Special Deals')" class="filter-btn text-gray-400 px-6 py-2 rounded-full text-[10px] font-black uppercase">Special</button>
@@ -122,7 +114,7 @@
                 <button onclick="displayProducts('Others')" class="filter-btn text-gray-400 px-6 py-2 rounded-full text-[10px] font-black uppercase">Others</button>
             </div>
 
-            <button onclick="scrollCats(200)" class="absolute -right-4 top-1/2 -translate-y-1/2 z-[60] bg-white shadow-lg border border-gray-100 w-10 h-10 rounded-full flex items-center justify-center text-black hover:text-red-600 transition opacity-0 group-hover:opacity-100 hidden md:flex">
+            <button onclick="scrollCats(200)" class="absolute -right-4 top-1/2 -translate-y-1/2 z-[60] bg-white shadow-lg border border-gray-100 w-10 h-10 rounded-full flex items-center justify-center text-black hover:text-red-600 transition">
                 <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M9 5l7 7-7 7" /></svg>
             </button>
         </div>
