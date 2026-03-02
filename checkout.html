@@ -10,10 +10,30 @@
     </script>
     <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;900&display=swap" rel="stylesheet">
-    <style>body { font-family: 'Poppins', sans-serif; overflow-x: hidden; }</style>
+    <style>
+        body { font-family: 'Poppins', sans-serif; overflow-x: hidden; }
+        .modal-animate { transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); }
+    </style>
 </head>
 <body class="bg-gray-50 pt-24 pb-12 px-4 md:px-6">
     <div id="navbar-placeholder"></div>
+
+    <div id="confirm-modal" class="hidden fixed inset-0 z-[500] items-center justify-center bg-black/60 backdrop-blur-sm p-4 transition-all duration-300">
+        <div class="modal-animate bg-white w-full max-w-sm rounded-[40px] shadow-2xl overflow-hidden transform scale-90 opacity-0 p-8 text-center">
+            <div class="w-20 h-20 bg-red-50 rounded-full flex items-center justify-center mx-auto mb-6">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-10 w-10 text-[#E72229]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" />
+                </svg>
+            </div>
+            <h2 class="text-2xl font-black italic uppercase mb-2">Are you sure?</h2>
+            
+            <div class="flex flex-col gap-3">
+                <button onclick="executeOrder()" class="w-full bg-black text-white py-5 rounded-2xl font-black text-sm hover:bg-[#E72229] transition uppercase italic">Yes, Place Order</button>
+                <button onclick="closeConfirmModal()" class="w-full bg-gray-100 text-gray-400 py-4 rounded-2xl font-black text-[10px] hover:bg-gray-200 transition uppercase">No, Wait</button>
+            </div>
+        </div>
+    </div>
+
     <div id="checkout-container" class="max-w-2xl mx-auto bg-white rounded-[30px] md:rounded-[40px] shadow-2xl overflow-hidden border border-gray-100">
         <div class="bg-black p-6 md:p-8 text-center">
             <h1 class="text-white text-2xl md:text-3xl font-black italic uppercase">Confirm <span class="text-[#E72229]">Order</span></h1>
@@ -32,7 +52,7 @@
                 <span id="final-total" class="text-3xl md:text-4xl font-black text-[#E72229]">Rs. 0</span>
             </div>
             <div id="action-area" class="space-y-4">
-                <button onclick="sendOrderNow()" class="w-full bg-[#E72229] text-white py-5 md:py-6 rounded-2xl md:rounded-[30px] font-black text-lg md:text-xl shadow-xl uppercase italic">Place Order</button>
+                <button onclick="showConfirmModal()" class="w-full bg-[#E72229] text-white py-5 md:py-6 rounded-2xl md:rounded-[30px] font-black text-lg md:text-xl shadow-xl uppercase italic">Place Order</button>
                 <a href="cart.html" class="block text-center text-gray-400 font-bold uppercase text-[10px]">Edit Cart</a>
             </div>
             <div id="loading-state" class="hidden text-center py-4">
@@ -41,10 +61,33 @@
             </div>
         </div>
     </div>
+
     <script src="cart.js"></script>
     <script>
         const SERVICE_ID = "service_j6ykc3l", TEMPLATE_ID = "template_xd90e9i", PUBLIC_KEY = "wgoq7xcLbnYxDE_Iy";
         (function() { if(PUBLIC_KEY !== "YOUR_PUBLIC_KEY") emailjs.init(PUBLIC_KEY); })();
+
+        function showConfirmModal() {
+            const modal = document.getElementById('confirm-modal');
+            modal.classList.replace('hidden', 'flex');
+            setTimeout(() => {
+                modal.querySelector('.modal-animate').classList.remove('scale-90', 'opacity-0');
+            }, 10);
+        }
+
+        function closeConfirmModal() {
+            const modal = document.getElementById('confirm-modal');
+            modal.querySelector('.modal-animate').classList.add('scale-90', 'opacity-0');
+            setTimeout(() => {
+                modal.classList.replace('flex', 'hidden');
+            }, 300);
+        }
+
+        function executeOrder() {
+            closeConfirmModal();
+            sendOrderNow();
+        }
+
         function initPage() {
             if (typeof injectNavbar === 'function') injectNavbar();
             const cartData = JSON.parse(localStorage.getItem('faster_cafe_cart')) || [];
@@ -56,6 +99,7 @@
             document.getElementById('order-summary').innerHTML = itemsHtml;
             document.getElementById('final-total').innerText = `Rs. ${grandTotal}`;
         }
+
         async function sendOrderNow() {
             const loading = document.getElementById('loading-state'), actionArea = document.getElementById('action-area');
             const cartData = JSON.parse(localStorage.getItem('faster_cafe_cart')), userData = JSON.parse(localStorage.getItem('faster_cafe_user'));
@@ -69,7 +113,7 @@
                 history.unshift({ orderId: orderID, date: new Date().toLocaleDateString(), time: new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' }), total: total, items: cartData });
                 localStorage.setItem('faster_cafe_history', JSON.stringify(history));
                 localStorage.removeItem('faster_cafe_cart');
-                document.getElementById('checkout-container').innerHTML = `<div class="p-12 text-center border-t-8 border-[#E72229]"><div class="text-5xl mb-6">🔥</div><h1 class="text-3xl font-black italic uppercase mb-4">PLACED!</h1><a href="index.html" class="inline-block bg-black text-white px-8 py-4 rounded-full font-black uppercase italic">Return</a></div>`;
+                document.getElementById('checkout-container').innerHTML = `<div class="p-12 text-center border-t-8 border-[#E72229]"><div class="text-5xl mb-6">🔥</div><h1 class="text-3xl font-black italic uppercase mb-4">ORDER PLACED!</h1><a href="index.html" class="inline-block bg-black text-white px-8 py-4 rounded-full font-black uppercase italic">Return</a></div>`;
             } catch (error) { alert("Error: " + JSON.stringify(error)); actionArea.classList.remove('hidden'); loading.classList.add('hidden'); }
         }
         window.onload = initPage;

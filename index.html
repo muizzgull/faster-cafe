@@ -42,7 +42,7 @@
         <div class="max-w-7xl mx-auto px-4 sm:px-6">
             <div class="bg-gradient-to-r from-red-100 via-white to-red-100 border-x-2 border-b-2 border-red-200 rounded-b-[30px] py-5 px-6 text-center shadow-md">
                 <p class="text-[10px] md:text-sm font-black text-red-600 uppercase tracking-wide">
-                    Note: Some images may be for illustration & one image may be used for multiple items.
+                    Note: Some images may be for illustration & Some images may not be of our restaurant & some images may not represent that item & one image may be used for multiple items.
                 </p>
             </div>
         </div>
@@ -80,7 +80,7 @@
                 <a href="#menu" class="bg-black text-white px-10 py-5 rounded-2xl font-black text-lg hover:bg-red-600 transition inline-block shadow-2xl">EXPLORE MENU</a>
             </div>
             <div class="relative flex justify-center lg:justify-end">
-                <img src="doube-decker-burger.png" class="w-84 max-w-md floating drop-shadow-2xl">
+                <img src="doube-decker-burger.png" class="w-48 sm:w-64 lg:w-[450px] floating drop-shadow-2xl">
             </div>
         </div>
     </section>
@@ -127,6 +127,10 @@
         function scrollCats(amount) {
             document.getElementById('cat-scroll').scrollBy({ left: amount, behavior: 'smooth' });
         }
+        document.addEventListener('DOMContentLoaded', () => { 
+            if (typeof injectNavbar === 'function') injectNavbar(); 
+            if (typeof displayProducts === 'function') displayProducts('All'); 
+        });
     </script>
 </body>
 </html>

@@ -50,7 +50,6 @@ const products = [
     { id: 451, name: "Plain Fries", price: 250, image: "fries.PNG", category: "Fries" },
     { id: 452, name: "Loaded Fries", price: 650, image: "pizza-fries.PNG", category: "Fries" },
     { id: 453, name: "Pizza Fries", price: 490, image: "pizza-fries.PNG", category: "Fries" },
-    // Split Hot Wings Section
     { id: 601, name: "Chicken Hot Wings", price: 350, image: "hot-wings.PNG", category: "Hot Wings" },
     { id: 602, name: "Oven Baked Wings", price: 350, image: "hot-wings.PNG", category: "Hot Wings" },
     { id: 603, name: "Honey Wings", price: 390, image: "hot-wings.PNG", category: "Hot Wings" },
@@ -74,7 +73,9 @@ function injectNavbar() {
     navPlaceholder.innerHTML = `
     <header class="fixed top-0 left-0 w-full bg-white/90 backdrop-blur-md z-[1000] border-b border-gray-100 px-4 md:px-6 py-4">
         <div class="max-w-7xl mx-auto flex justify-between items-center">
-            <img class="w-32 md:w-48" src="logo.png">
+            <a href="index.html">
+                <img class="w-32 md:w-48" src="logo.png" alt="FASTER CAFE">
+            </a>
             <nav class="flex gap-4 md:gap-8 items-center font-bold text-[10px] md:text-xs uppercase tracking-widest">
                 <a href="index.html" class="hover:text-[#E72229] transition">Home</a>
                 <a href="orders.html" class="hover:text-[#E72229] transition">Orders</a>
@@ -103,7 +104,7 @@ function displayProducts(category = 'All') {
             (sCat === 'paratha rolls' && bText === 'paratha') || 
             (sCat === 'special deals' && bText === 'special') || 
             (sCat === 'hot wings' && bText === 'wings') ||
-            (sCat === 'chicken strips' && bText === 'strips') || // Fixed Strips nav fix
+            (sCat === 'chicken strips' && bText === 'strips') || 
             (sCat === 'deals' && bText === 'deals');
 
         if (isMatch) {
@@ -118,8 +119,8 @@ function displayProducts(category = 'All') {
     cats.forEach(cat => {
         const filtered = products.filter(p => p.category === cat);
         if (filtered.length > 0) {
-            // mt-28 added to heading to prevent overlapping with fixed category nav on mobile
-            htmlContent += `<div class="col-span-full mt-28 md:mt-10 mb-4 md:mb-6"><h2 class="text-xl md:text-3xl font-black italic uppercase border-l-4 md:border-l-8 border-[#E72229] pl-3 md:pl-4 text-black">${cat}</h2></div>`;
+            // Updated margin: mt-28 for mobile, md:mt-48 for large screens
+            htmlContent += `<div class="col-span-full mt-28 md:mt-48 mb-4 md:mb-6"><h2 class="text-xl md:text-3xl font-black italic uppercase border-l-4 md:border-l-8 border-[#E72229] pl-3 md:pl-4 text-black">${cat}</h2></div>`;
             htmlContent += filtered.map(product => {
                 const needsModal = ["Pizza", "Signature Pizza", "Hot Wings", "Nuggets", "Chicken Strips"].includes(product.category) || (product.category === "Fries" && product.name !== "Loaded Fries");
                 return `
@@ -159,7 +160,6 @@ function openModal(product) {
     } else if (product.category === "Signature Pizza") {
         opt = `${renderOption('Medium', 1150, true)} ${renderOption('Large', 1650)} ${renderOption('X-Large', 2250)}`;
     } else if (product.category === "Hot Wings") {
-        // Specific Pricing Logic for the 4 Wing types
         if (product.name.includes("Honey") || product.name.includes("Malai")) {
             opt = `${renderOption('5 Pcs', 390, true)} ${renderOption('10 Pcs', 790)}`;
         } else {
@@ -204,5 +204,3 @@ function showToast(msg) {
     t.querySelector('span').innerText = msg; t.classList.replace('hidden', 'flex'); t.classList.replace('opacity-0', 'opacity-100');
     setTimeout(() => { t.classList.replace('opacity-100', 'opacity-0'); setTimeout(() => t.classList.replace('flex', 'hidden'), 300); }, 2000);
 }
-
-document.addEventListener('DOMContentLoaded', () => { injectNavbar(); if (document.getElementById('product-grid')) displayProducts('All'); });
