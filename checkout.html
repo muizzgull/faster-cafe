@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Final Confirmation | FASTER CAFE</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+          theme: {
+            extend: {
+              colors: {
+                red: {
+                  50: '#fef2f2',
+                  600: '#E72229',
+                },
+              },
+            },
+          },
+        }
+    </script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;900&display=swap" rel="stylesheet">
+    <style>body { font-family: 'Poppins', sans-serif; }</style>
+</head>
+<body class="bg-gray-50 pt-24 pb-12 px-6">
+
+    <div id="navbar-placeholder"></div>
+
+    <div id="checkout-container" class="max-w-2xl mx-auto bg-white rounded-[40px] shadow-2xl overflow-hidden border border-gray-100">
+        <div class="bg-black p-8 text-center">
+            <h1 class="text-white text-3xl font-black italic tracking-tighter uppercase">Confirm Your <span class="text-[#E72229]">Order</span></h1>
+        </div>
+
+        <div class="p-8 space-y-8">
+            <div>
+                <h3 class="text-xs font-black text-[#E72229] uppercase tracking-[3px] mb-4 border-b-2 pb-2">Delivery To</h3>
+                <div id="user-summary" class="bg-gray-50 p-6 rounded-3xl font-bold text-gray-700">
+                    </div>
+            </div>
+
+            <div>
+                <h3 class="text-xs font-black text-[#E72229] uppercase tracking-[3px] mb-4 border-b-2 pb-2">Your Items</h3>
+                <div id="order-summary" class="space-y-3 font-mono text-sm bg-gray-50 p-6 rounded-3xl">
+                    </div>
+            </div>
+
+            <div class="flex justify-between items-center pt-4 border-t">
+                <span class="font-black text-xl italic uppercase">Grand Total</span>
+                <span id="final-total" class="text-4xl font-black text-[#E72229]">Rs. 0</span>
+            </div>
+
+            <div id="action-area" class="space-y-4">
+                <button id="confirm-btn" onclick="sendOrderNow()" class="w-full bg-[#E72229] text-white py-6 rounded-[30px] font-black text-xl shadow-xl hover:bg-black transition-all uppercase italic">
+                    Place Order Now
+                </button>
+                <a href="cart.html" class="block text-center text-gray-400 font-bold uppercase text-xs hover:text-[#E72229] transition">Go back to edit cart</a>
+            </div>
+
+            <div id="loading-state" class="hidden text-center py-4">
+                <div class="animate-spin rounded-full h-10 w-10 border-t-4 border-[#E72229] mx-auto mb-2"></div>
+                <p class="font-black italic uppercase text-gray-400">Order Placing...</p>
+            </div>
+        </div>
+    </div>
+
+    <script src="cart.js"></script>
+
+    <script>
+        // --- CONFIGURATION ---
+        const SERVICE_ID = "service_j6ykc3l";
+        const TEMPLATE_ID = "template_xd90e9i";
+        const PUBLIC_KEY = "wgoq7xcLbnYxDE_Iy";
+
+        (function() { 
+            if(PUBLIC_KEY !== "YOUR_PUBLIC_KEY") emailjs.init(PUBLIC_KEY); 
+        })();
+
+        function initPage() {
+            // 1. Try to inject navbar but don't crash if it fails
+            if (typeof injectNavbar === 'function') {
+                injectNavbar();
+            }
+
+            // 2. Get Data from LocalStorage
+            const cartData = JSON.parse(localStorage.getItem('faster_cafe_cart')) || [];
+            const userData = JSON.parse(localStorage.getItem('faster_cafe_user')) || null;
+
+            // 3. Safety Check: If no data, send back to home
+            if (!userData || cartData.length === 0) {
+                alert("No order data found!");
+                window.location.href = 'index.html';
+                return;
+            }
+
+            // 4. Render User Info
+            document.getElementById('user-summary').innerHTML = `
+                <p class="text-black text-lg">${userData.name}</p>
+                <p class="text-sm font-semibold text-gray-600">${userData.phone} | ${userData.email}</p>
+                <p class="text-sm font-semibold mt-2 text-gray-400">${userData.address}</p>
+            `;
+
+            // 5. Render Order Items + Special Notes
+            let itemsHtml = "";
+            let grandTotal = 0;
+            
+            cartData.forEach(item => {
+                const sub = item.price * item.quantity;
+                grandTotal += sub;
+                
+                itemsHtml += `
+                <div class="border-b border-gray-200 pb-2 mb-2">
+                    <div class="flex justify-between font-black uppercase text-gray-800">
+                        <span>${item.quantity}x ${item.name}</span>
+                        <span>Rs. ${sub}</span>
+                    </div>
+                    ${item.note ? `<p class="text-[11px] text-[#E72229] italic font-bold mt-1 bg-red-50 p-1 rounded">Note: ${item.note}</p>` : ''}
+                </div>`;
+            });
+
+            document.getElementById('order-summary').innerHTML = itemsHtml;
+            document.getElementById('final-total').innerText = `Rs. ${grandTotal}`;
+        }
+
+        async function sendOrderNow() {
+    const loading = document.getElementById('loading-state');
+    const actionArea = document.getElementById('action-area');
+    const cartData = JSON.parse(localStorage.getItem('faster_cafe_cart'));
+    const userData = JSON.parse(localStorage.getItem('faster_cafe_user'));
+
+    actionArea.classList.add('hidden');
+    loading.classList.remove('hidden');
+
+    // 1. Calculate Total and Format Details for Email
+    let detailsString = "";
+    let total = 0;
+    cartData.forEach(item => {
+        const sub = item.price * item.quantity;
+        total += sub;
+        detailsString += `${item.quantity}x ${item.name.toUpperCase()}\n`;
+        detailsString += `   Price: Rs. ${item.price} | Sub: Rs. ${sub}\n`;
+        if(item.note) detailsString += `   Note: "${item.note}"\n`;
+        detailsString += `--------------------------------\n`;
+    });
+
+    const orderID = `FC-${Math.floor(100000 + Math.random() * 900000)}`;
+
+    const templateParams = {
+        order_id: orderID,
+        customer_name: userData.name,
+        customer_phone: userData.phone,
+        customer_email: userData.email,
+        customer_address: userData.address,
+        order_details: detailsString,
+        total_price: `Rs. ${total}`
+    };
+
+    try {
+        await emailjs.send(SERVICE_ID, TEMPLATE_ID, templateParams);
+
+        // --- NEW: SAVE TO HISTORY BEFORE CLEARING CART ---
+        const history = JSON.parse(localStorage.getItem('faster_cafe_history')) || [];
+        const newOrder = {
+            orderId: orderID,
+            date: new Date().toLocaleDateString(),
+            time: new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' }),
+            total: total,
+            items: cartData // Saves the full array including notes
+        };
+        history.unshift(newOrder); // Add to top of list
+        localStorage.setItem('faster_cafe_history', JSON.stringify(history));
+        // ------------------------------------------------
+
+        localStorage.removeItem('faster_cafe_cart'); 
+        
+        document.getElementById('checkout-container').innerHTML = `
+            <div class="p-12 text-center border-t-8 border-[#E72229]">
+                <div class="text-6xl mb-6">🔥</div>
+                <h1 class="text-4xl font-black italic uppercase mb-4">ORDER Placed!</h1>
+                <p class="text-gray-500 font-bold mb-8 uppercase text-sm tracking-widest">Get Ready For Your Food!</p>
+                <a href="index.html" class="inline-block bg-black text-white px-10 py-4 rounded-full font-black uppercase italic hover:bg-[#E72229] transition">Return to Home</a>
+            </div>
+        `;
+    } catch (error) {
+        alert("Error sending order: " + JSON.stringify(error));
+        actionArea.classList.remove('hidden');
+        loading.classList.add('hidden');
+    }
+}
+
+        // Initialize on load
+        window.onload = initPage;
+    </script>
+</body>
+</html>
