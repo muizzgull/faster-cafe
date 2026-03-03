@@ -31,15 +31,8 @@
         }
 
         @keyframes float {
-
-            0%,
-            100% {
-                transform: translateY(0px);
-            }
-
-            50% {
-                transform: translateY(-20px);
-            }
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
         }
 
         .floating {
@@ -58,6 +51,18 @@
         .filter-btn {
             transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
             white-space: nowrap;
+            flex: 0 0 calc(33.333% - 8px); 
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-width: fit-content;
+            cursor: pointer;
+        }
+
+        @media (min-width: 768px) {
+            .filter-btn {
+                flex: 0 0 auto;
+            }
         }
 
         .filter-btn:hover:not(.active-cat) {
@@ -68,6 +73,14 @@
         .active-cat {
             background-color: #000 !important;
             color: #fff !important;
+        }
+
+        #cat-scroll {
+            scroll-snap-type: x mandatory;
+        }
+        
+        .filter-btn {
+            scroll-snap-align: start;
         }
     </style>
 </head>
@@ -158,40 +171,22 @@
 
             <div id="cat-scroll"
                 class="flex-1 flex overflow-x-auto no-scrollbar gap-2 bg-gray-100/80 backdrop-blur-md p-2 rounded-[35px] border border-gray-200 scroll-smooth mx-8">
-                <button onclick="displayProducts('All')"
-                    class="filter-btn active-cat px-6 py-2 rounded-full text-[10px] font-black uppercase">All</button>
-                <button onclick="displayProducts('Pizza')"
-                    class="filter-btn text-gray-400 px-6 py-2 rounded-full text-[10px] font-black uppercase">Pizza</button>
-                <button onclick="displayProducts('Signature Pizza')"
-                    class="filter-btn text-gray-400 px-6 py-2 rounded-full text-[10px] font-black uppercase">Signature &nbsp; Pizza</button>
-                <button onclick="displayProducts('Burgers')"
-                    class="filter-btn text-gray-400 px-6 py-2 rounded-full text-[10px] font-black uppercase">Burgers</button>
-                <button onclick="displayProducts('Deals')"
-                    class="filter-btn text-gray-400 px-6 py-2 rounded-full text-[10px] font-black uppercase">Deals
-                    </button>
-                <button onclick="displayProducts('Special Deals')"
-                    class="filter-btn text-gray-400 px-6 py-2 rounded-full text-[10px] font-black uppercase">Special &nbsp; Deals</button>
-                <button onclick="displayProducts('Pizza Deals')"
-                    class="filter-btn text-gray-400 px-6 py-2 rounded-full text-[10px] font-black uppercase">Pizza &nbsp;
-                    Deals</button>
-                <button onclick="displayProducts('Fries')"
-                    class="filter-btn text-gray-400 px-6 py-2 rounded-full text-[10px] font-black uppercase">Fries</button>
-                <button onclick="displayProducts('Nuggets')"
-                    class="filter-btn text-gray-400 px-6 py-2 rounded-full text-[10px] font-black uppercase">Nuggets</button>
-                <button onclick="displayProducts('Hot Wings')"
-                    class="filter-btn text-gray-400 px-6 py-2 rounded-full text-[10px] font-black uppercase">Wings</button>
-                <button onclick="displayProducts('Chicken Strips')"
-                    class="filter-btn text-gray-400 px-6 py-2 rounded-full text-[10px] font-black uppercase">Strips</button>
-                <button onclick="displayProducts('Wraps')"
-                    class="filter-btn text-gray-400 px-6 py-2 rounded-full text-[10px] font-black uppercase">Wraps</button>
-                <button onclick="displayProducts('Shawarmas')"
-                    class="filter-btn text-gray-400 px-6 py-2 rounded-full text-[10px] font-black uppercase">Shawarma</button>
-                <button onclick="displayProducts('Paratha Rolls')"
-                    class="filter-btn text-gray-400 px-6 py-2 rounded-full text-[10px] font-black uppercase">Paratha</button>
-                <button onclick="displayProducts('Drinks')"
-                    class="filter-btn text-gray-400 px-6 py-2 rounded-full text-[10px] font-black uppercase">Drinks</button>
-                <button onclick="displayProducts('Others')"
-                    class="filter-btn text-gray-400 px-6 py-2 rounded-full text-[10px] font-black uppercase">Others</button>
+                <button onclick="handleCategoryClick(this, 'All')" class="filter-btn active-cat px-6 py-2 rounded-full text-[10px] font-black uppercase">All</button>
+                <button onclick="handleCategoryClick(this, 'Pizza')" class="filter-btn text-gray-400 px-6 py-2 rounded-full text-[10px] font-black uppercase">Pizza</button>
+                <button onclick="handleCategoryClick(this, 'Signature Pizza')" class="filter-btn text-gray-400 px-6 py-2 rounded-full text-[10px] font-black uppercase">Signature &nbsp; Pizza</button>
+                <button onclick="handleCategoryClick(this, 'Burgers')" class="filter-btn text-gray-400 px-6 py-2 rounded-full text-[10px] font-black uppercase">Burgers</button>
+                <button onclick="handleCategoryClick(this, 'Deals')" class="filter-btn text-gray-400 px-6 py-2 rounded-full text-[10px] font-black uppercase">Deals</button>
+                <button onclick="handleCategoryClick(this, 'Special Deals')" class="filter-btn text-gray-400 px-6 py-2 rounded-full text-[10px] font-black uppercase">Special &nbsp; Deals</button>
+                <button onclick="handleCategoryClick(this, 'Pizza Deals')" class="filter-btn text-gray-400 px-6 py-2 rounded-full text-[10px] font-black uppercase">Pizza &nbsp; Deals</button>
+                <button onclick="handleCategoryClick(this, 'Fries')" class="filter-btn text-gray-400 px-6 py-2 rounded-full text-[10px] font-black uppercase">Fries</button>
+                <button onclick="handleCategoryClick(this, 'Nuggets')" class="filter-btn text-gray-400 px-6 py-2 rounded-full text-[10px] font-black uppercase">Nuggets</button>
+                <button onclick="handleCategoryClick(this, 'Hot Wings')" class="filter-btn text-gray-400 px-6 py-2 rounded-full text-[10px] font-black uppercase">Wings</button>
+                <button onclick="handleCategoryClick(this, 'Chicken Strips')" class="filter-btn text-gray-400 px-6 py-2 rounded-full text-[10px] font-black uppercase">Strips</button>
+                <button onclick="handleCategoryClick(this, 'Wraps')" class="filter-btn text-gray-400 px-6 py-2 rounded-full text-[10px] font-black uppercase">Wraps</button>
+                <button onclick="handleCategoryClick(this, 'Shawarmas')" class="filter-btn text-gray-400 px-6 py-2 rounded-full text-[10px] font-black uppercase">Shawarma</button>
+                <button onclick="handleCategoryClick(this, 'Paratha Rolls')" class="filter-btn text-gray-400 px-6 py-2 rounded-full text-[10px] font-black uppercase">Paratha</button>
+                <button onclick="handleCategoryClick(this, 'Drinks')" class="filter-btn text-gray-400 px-6 py-2 rounded-full text-[10px] font-black uppercase">Drinks</button>
+                <button onclick="handleCategoryClick(this, 'Others')" class="filter-btn text-gray-400 px-6 py-2 rounded-full text-[10px] font-black uppercase">Others</button>
             </div>
 
             <button onclick="scrollCats(200)"
@@ -211,11 +206,31 @@
         function scrollCats(amount) {
             document.getElementById('cat-scroll').scrollBy({ left: amount, behavior: 'smooth' });
         }
+
+        function handleCategoryClick(btn, category) {
+            // First call the original function
+            if (typeof displayProducts === 'function') {
+                displayProducts(category);
+            }
+
+            // Small delay ensures we override any class changes made by displayProducts()
+            setTimeout(() => {
+                document.querySelectorAll('.filter-btn').forEach(b => {
+                    b.classList.remove('active-cat');
+                    b.classList.add('text-gray-400');
+                    b.style.backgroundColor = ""; // Reset inline styles if any
+                    b.style.color = "";
+                });
+
+                btn.classList.add('active-cat');
+                btn.classList.remove('text-gray-400');
+            }, 50);
+        }
+
         document.addEventListener('DOMContentLoaded', () => {
             if (typeof injectNavbar === 'function') injectNavbar();
             if (typeof displayProducts === 'function') displayProducts('All');
         });
     </script>
 </body>
-
 </html>
