@@ -1,0 +1,457 @@
+
+const products = [
+    { id: 1, name: "Patty Burger", price: 320, image: "patty-burger.png", category: "Burgers" },
+    { id: 2, name: "Crunch Burger", price: 320, image: "cruch-burger.png", category: "Burgers" },
+    { id: 3, name: "Grilled Burger", price: 490, image: "grilled-burger.png", category: "Burgers" },
+    { id: 4, name: "Grilled King Burger", price: 650, image: "grilled-king-burger.png", category: "Burgers" },
+    { id: 5, name: "Zinger Burger", price: 390, image: "zinger-burger.png", category: "Burgers" },
+    { id: 6, name: "Monster Fillet", price: 550, image: "monster-fillet-burger.png", category: "Burgers" },
+    { id: 7, name: "Double Decker", price: 650, image: "doube-decker-burger.png", category: "Burgers" },
+    { id: 8, name: "Chicken Tikka", price: 1090, image: "chicken-tikka.jpeg", category: "Pizza" },
+    { id: 9, name: "Chicken Fajita", price: 1090, image: "chicken-fajita-pizza.jpeg", category: "Pizza" },
+    { id: 10, name: "Faster Special Pizza", price: 1250, image: "faster-special-pizza.jpeg", category: "Pizza" },
+    { id: 11, name: "Chicken Mexican Pizza", price: 1150, image: "chicken-mexican-pizza.jpeg", category: "Pizza" },
+    { id: 12, name: "Hot & Spicy Pizza", price: 1150, image: "hot-n-spicy-pizza.jpeg", category: "Pizza" },
+    { id: 13, name: "Super Supreme Pizza", price: 1150, image: "super-supreme-pizza.jpeg", category: "Pizza" },
+    { id: 14, name: "BBQ Lover Pizza", price: 1150, image: "bbq-lover-pizza.jpeg", category: "Pizza" },
+    { id: 15, name: "Cheese Lover Pizza", price: 1150, image: "cheese-lover-pizza.jpeg", category: "Pizza" },
+    { id: 904, name: "Malai Pizza", price: 1150, image: "malai-pizza.jpeg", category: "Signature Pizza" },
+    { id: 905, name: "Doner Pizza", price: 1150, image: "doner-pizza.jpeg", category: "Signature Pizza" },
+    { id: 906, name: "Kebab Crust Pizza", price: 1150, image: "kebab-crust-pizza.jpeg", category: "Signature Pizza" },
+    { id: 907, name: "Behari Pizza", price: 1150, image: "behari-kebab-pizza.jpeg", category: "Signature Pizza" },
+    { id: 908, name: "Crown Crust Pizza", price: 1150, image: "crown-crust-pizza.jpeg", category: "Signature Pizza" },
+    { id: 101, name: "Chicken Shawarma", price: 260, image: "chicken-shawarma.PNG", category: "Shawarmas" },
+    { id: 102, name: "Zinger Shawarma", price: 390, image: "zinger-chicken-shawarma.PNG", category: "Shawarmas" },
+    { id: 103, name: "Grilled Shawarma", price: 390, image: "grilled-chicken-shawarma.PNG", category: "Shawarmas" },
+    { id: 104, name: "Open Chicken Shawarma", price: 490, image: "open-chicken-shawarma.PNG", category: "Shawarmas" },
+    { id: 201, name: "Chicken Paratha Roll", price: 290, image: "chicken-paratha.png", category: "Paratha Rolls" },
+    { id: 202, name: "Zinger Paratha Roll", price: 400, image: "zinger-paratha.PNG", category: "Paratha Rolls" },
+    { id: 203, name: "Grilled Paratha Roll", price: 430, image: "grilled-paratha.PNG", category: "Paratha Rolls" },
+    { id: 2001, name: "Deal 1: <br> 1 Patty Burger + 1 Fries + Drink", price: 430, image: "deal1.PNG", category: "Deals" },
+    { id: 2002, name: "Deal 2: <br> 1 Zinger Burger + 1 Fries + Drink", price: 550, image: "deal2.PNG", category: "Deals" },
+    { id: 2003, name: "Deal 3: <br> 1 Grilled Burger + 1 Fries + Drink", price: 650, image: "deal3.PNG", category: "Deals" },
+    { id: 2004, name: "Deal 4: <br> 2 Zinger Burgers + 2 Fries + 2 Drinks", price: 990, image: "deal4.PNG", category: "Deals" },
+    { id: 2005, name: "Deal 5: <br> 2 Grilled Burgers + 2 Fries + 2 Drinks", price: 1150, image: "deal5.PNG", category: "Deals" },
+    { id: 2006, name: "Deal 6: <br> 4 Zinger Burgers + 1 Fries + 1.5L", price: 1850, image: "deal6.PNG", category: "Deals" },
+    { id: 3001, name: "Special Deal 1: <br> 2 Pizza Fries + 2 Drinks", price: 1050, image: "special-deal1.PNG", category: "Special Deals" },
+    { id: 3002, name: "Special Deal 2: <br> 2 Small Pizzas + 2 Drinks", price: 1050, image: "special-deal2.jpeg", category: "Special Deals" },
+    { id: 3003, name: "Special Deal 3: <br> 3 Crunch Burgers + 1L Drink ", price: 1050, image: "special-deal3.PNG", category: "Special Deals" },
+    { id: 3004, name: "Special Deal 4: <br> 4 Shawarmas + 1L Drink", price: 1050, image: "special-deal4.PNG", category: "Special Deals" },
+    { id: 3005, name: "Special Deal 5: <br> 2 Patty Burgers + 1 Fries", price: 590, image: "special-deal5.PNG", category: "Special Deals" },
+    { id: 3006, name: "Special Deal 6: <br> 1 Monster Fillet + Drink", price: 650, image: "special-deal6.PNG", category: "Special Deals" },
+    { id: 4001, name: "Pizza Deal 1: <br> 1 Medium Pizza + 1 Drink(500 ml)", price: 1090, image: "pizza-deal1.jpeg", category: "Pizza Deals" },
+    { id: 4002, name: "Pizza Deal 2: <br> 1 Large Pizza + 1 Liter Drink", price: 1590, image: "pizza-deal2.jpeg", category: "Pizza Deals" },
+    { id: 4003, name: "Pizza Deal 3: <br> 2 Medium + 5 hot Wings + 1.5 liter Drink", price: 2590, image: "pizza-deal3.jpeg", category: "Pizza Deals" },
+    { id: 4004, name: "Pizza Deal 4: <br> 1 XL + 10 Wings + 1.5 Liter Drink", price: 2820, image: "pizza-deal4.jpeg", category: "Pizza Deals" },
+    { id: 4005, name: "Pizza Deal 5: <br> 2 Large + 1.5 Liter Drink", price: 2990, image: "pizza-deal5.jpeg", category: "Pizza Deals" },
+    { id: 4006, name: "Pizza Deal 6: <br> 1 Small Pizza + 1 Drink(NR)", price: 650, image: "pizza-deal1.jpeg", category: "Pizza Deals" },
+    { id: 251, name: "Chicken Wrap", price: 550, image: "chicken-wrap.png", category: "Wraps" },
+    { id: 252, name: "Grilled Fillet Wrap", price: 550, image: "grilled-fillet-wrap.PNG", category: "Wraps" },
+    { id: 253, name: "Zinger Wrap", price: 490, image: "zinger-wrap.PNG", category: "Wraps" },
+    { id: 451, name: "Plain Fries", price: 250, image: "fries.PNG", category: "Fries" },
+    { id: 452, name: "Loaded Fries", price: 650, image: "loaded-fries.PNG", category: "Fries" },
+    { id: 453, name: "Pizza Fries", price: 490, image: "pizza-fries.PNG", category: "Fries" },
+    { id: 601, name: "Chicken Hot Wings", price: 350, image: "chicke-wings.PNG", category: "Hot Wings" },
+    { id: 602, name: "Oven Baked Wings", price: 350, image: "chicken-baked-wings.PNG", category: "Hot Wings" },
+    { id: 603, name: "Honey Wings", price: 390, image: "chicken-honey-wings.PNG", category: "Hot Wings" },
+    { id: 604, name: "Malai Wings", price: 390, image: "chicken-malai-wings.PNG", category: "Hot Wings" },
+    { id: 701, name: "Chicken Nuggets", price: 300, image: "chicken-nuggets.PNG", category: "Nuggets" },
+    { id: 703, name: "Chicken Strips", price: 420, image: "chicken-strips.PNG", category: "Chicken Strips" },
+    { id: 801, name: "NR - Drink", price: 90, image: "nr-drink.jpeg", category: "Drinks" },
+    { id: 802, name: "Half Liter Drink", price: 140, image: "half-liter-drink.jpeg", category: "Drinks" },
+    { id: 803, name: "1 Liter Drink", price: 180, image: "one-liter-drink.jpeg", category: "Drinks" },
+    { id: 804, name: "1.5 Liter Drink", price: 250, image: "one-5-liter-drink.jpeg", category: "Drinks" },
+    { id: 805, name: "Mint Margarita", price: 250, image: "mint-margaritta.png", category: "Drinks" },
+    { id: 806, name: "Strawberry Lime", price: 150, image: "strawberry-lime.png", category: "Drinks" },
+    { id: 807, name: "Fresh Lime", price: 200, image: "fresh-lime.png", category: "Drinks" },
+    { id: 403, name: "Cheese Stick", price: 320, image: "cheese-stick.png", category: "Others" },
+    { id: 404, name: "Alfredo Pasta", price: 350, image: "pasta.png", category: "Others" }
+];
+
+let cart = JSON.parse(localStorage.getItem('faster_cafe_cart')) || [];
+let currentItem = null;
+
+function injectNavbar() {
+    const navPlaceholder = document.getElementById('navbar-placeholder');
+    if (!navPlaceholder) return;
+    const cartCount = cart.reduce((sum, item) => sum + item.quantity, 0);
+    navPlaceholder.innerHTML = `
+    <header class="fixed top-0 left-0 w-full bg-white/90 backdrop-blur-md z-[1000] border-b border-gray-100 px-4 md:px-6 py-4">
+        <div class="max-w-7xl mx-auto flex justify-between items-center">
+            <a href="index.html">
+                <img class="w-32 md:w-48" src="logo.png" alt="FASTER CAFE">
+            </a>
+            <nav class="flex gap-4 md:gap-8 items-center font-bold text-[10px] md:text-xs uppercase tracking-widest">
+                <a href="index.html" class="hover:text-[#E72229] transition">Home</a>
+                <a href="orders.html" class="hover:text-[#E72229] transition">Orders</a>
+                <a href="cart.html" class="relative flex items-center gap-2 hover:text-[#E72229] transition">
+                    Cart <span id="cart-count" class="bg-[#E72229] text-white text-[8px] md:text-[10px] w-4 h-4 md:w-5 md:h-5 flex items-center justify-center rounded-full">${cartCount}</span>
+                </a>
+            </nav>
+        </div>
+    </header>`;
+}
+
+function displayProducts(category = 'All') {
+    const grid = document.getElementById('product-grid');
+    if (!grid) return;
+
+    document.querySelectorAll('.filter-btn').forEach(btn => {
+        const bText = btn.innerText.replace(/[^\x00-\x7F]/g, "").trim().toLowerCase();
+        const sCat = category.toLowerCase();
+        
+        btn.classList.remove('active-cat');
+        btn.classList.add('text-gray-400');
+
+        const isMatch = 
+            bText === sCat || 
+            (sCat === 'signature pizza' && bText === 'signature') || 
+            (sCat === 'paratha rolls' && bText === 'paratha') || 
+            (sCat === 'special deals' && bText === 'special') || 
+            (sCat === 'hot wings' && bText === 'wings') ||
+            (sCat === 'chicken strips' && bText === 'strips') || 
+            (sCat === 'deals' && bText === 'deals');
+
+        if (isMatch) {
+            btn.classList.add('active-cat');
+            btn.classList.remove('text-gray-400');
+        }
+    });
+
+    let htmlContent = "";
+    
+    // Updated order: Pizza Deals moved before Special Deals to match your navigation
+    const categoryOrder = [
+        "Pizza", "Signature Pizza", "Burgers", "Deals", "Pizza Deals", 
+        "Special Deals", "Fries", "Nuggets", "Hot Wings", "Chicken Strips", 
+        "Wraps", "Shawarmas", "Paratha Rolls", "Drinks", "Others"
+    ];
+
+    const cats = category === 'All' ? categoryOrder : [category];
+    
+    cats.forEach(cat => {
+        const filtered = products.filter(p => p.category === cat);
+        if (filtered.length > 0) {
+            htmlContent += `<div class="col-span-full mt-28 md:mt-48 mb-4 md:mb-6"><h2 class="text-xl md:text-3xl font-black italic uppercase border-l-4 md:border-l-8 border-[#E72229] pl-3 md:pl-4 text-black">${cat}</h2></div>`;
+            htmlContent += filtered.map(product => {
+                const needsModal = ["Pizza", "Signature Pizza", "Hot Wings", "Nuggets", "Chicken Strips"].includes(product.category) || (product.category === "Fries" && product.name !== "Loaded Fries");
+                return `
+                <div class="bg-white p-3 md:p-6 rounded-[25px] md:rounded-[40px] shadow-sm hover:shadow-xl transition-all border border-gray-100 group flex flex-col justify-between h-full">
+                    <div class="h-32 md:h-48 flex items-center justify-center overflow-hidden mb-3 rounded-2xl">
+                        <img src="${product.image}" class="max-h-full w-auto object-cover transition duration-500" onerror="this.src='https://via.placeholder.com/300?text=Food'">
+                    </div>
+                    <div>
+                        <h3 class="text-xs md:text-lg font-black uppercase italic leading-tight mb-1 line-clamp-2">${product.name}</h3>
+                        <p class="text-gray-400 text-[7px] md:text-[9px] font-black uppercase mb-2">${product.category}</p>
+                        <p class="text-[#E72229] font-black text-sm md:text-xl">${needsModal ? 'From ' : ''}Rs. ${product.price}</p>
+                        <button onclick="handleAddToCart(${product.id})" class="mt-3 w-full bg-black text-white py-3 md:py-4 rounded-xl md:rounded-2xl font-black text-[8px] md:text-[10px] hover:bg-[#E72229] transition uppercase">
+                            ${needsModal ? 'SELECT' : 'ADD'}
+                        </button>
+                    </div>
+                </div>`;
+            }).join('');
+        }
+    });
+    grid.innerHTML = htmlContent;
+}
+
+function handleAddToCart(productId) {
+    const product = products.find(p => p.id === productId);
+    const needsModal = ["Pizza", "Signature Pizza", "Hot Wings", "Nuggets", "Chicken Strips"].includes(product.category) || (product.category === "Fries" && product.name !== "Loaded Fries");
+    if (needsModal) openModal(product); else addToCart(productId);
+}
+
+function openModal(product) {
+    currentItem = product; 
+    const modal = document.getElementById('pizza-modal'), optionsContainer = document.getElementById('pizza-options');
+    document.getElementById('modal-pizza-name').innerText = product.name;
+    let opt = "";
+    
+    if (product.category === "Pizza") {
+        opt = `${renderOption('Small', 590)} ${renderOption('Medium', 1090, true)} ${renderOption('Large', 1590)} ${renderOption('X-Large', 2190)}`;
+    } else if (product.category === "Signature Pizza") {
+        opt = `${renderOption('Medium', 1150, true)} ${renderOption('Large', 1650)} ${renderOption('X-Large', 2250)}`;
+    } else if (product.category === "Hot Wings") {
+        if (product.name.includes("Honey") || product.name.includes("Malai")) {
+            opt = `${renderOption('5 Pcs', 390, true)} ${renderOption('10 Pcs', 790)}`;
+        } else {
+            opt = `${renderOption('5 Pcs', 350, true)} ${renderOption('10 Pcs', 690)}`;
+        }
+    } else if (product.category === "Fries") {
+        opt = product.name === "Pizza Fries" ? `${renderOption('Regular', 490, true)} ${renderOption('Large', 790)}` : `${renderOption('Regular', 250, true)} ${renderOption('Large', 350)}`;
+    } else if (product.category === "Nuggets") {
+        opt = `${renderOption('5 Pieces', 300, true)} ${renderOption('10 Pieces', 590)}`;
+    } else if (product.category === "Chicken Strips") {
+        opt = `${renderOption('5 Pieces', 420, true)} ${renderOption('10 Pieces', 790)}`;
+    }
+    
+    optionsContainer.innerHTML = opt;
+    modal.classList.replace('hidden', 'flex'); 
+    setTimeout(() => modal.querySelector('.modal-content').classList.remove('scale-90', 'opacity-0'), 10);
+}
+
+function renderOption(label, price, checked = false) {
+    return `<label class="flex items-center justify-between p-3 md:p-4 bg-gray-50 rounded-xl md:rounded-2xl cursor-pointer border-2 border-transparent has-[:checked]:border-[#E72229] transition"><div class="flex items-center gap-2 md:gap-3"><input type="radio" name="item-choice" value="${label}" data-price="${price}" ${checked ? 'checked' : ''} class="w-4 h-4 accent-[#E72229]"><span class="font-bold text-[10px] md:text-sm uppercase">${label}</span></div><span class="font-black text-[#E72229] text-xs md:text-base">Rs. ${price}</span></label>`;
+}
+
+function closePizzaModal() { const modal = document.getElementById('pizza-modal'); modal.querySelector('.modal-content').classList.add('scale-90', 'opacity-0'); setTimeout(() => modal.classList.replace('flex', 'hidden'), 300); }
+
+function confirmPizzaSelection() {
+    const s = document.querySelector('input[name="item-choice"]:checked'); if (!s) return;
+    const newItem = { ...currentItem, id: `${currentItem.id}-${s.value}`, name: `${currentItem.name} (${s.value})`, price: parseInt(s.getAttribute('data-price')), quantity: 1 };
+    const ex = cart.find(i => i.id === newItem.id); if (ex) ex.quantity += 1; else cart.push(newItem);
+    save(); closePizzaModal(); showToast(`${newItem.name} Added!`);
+}
+
+function addToCart(productId) {
+    const p = products.find(i => i.id === productId); const ex = cart.find(i => i.id === productId);
+    if (ex) ex.quantity += 1; else cart.push({ ...p, quantity: 1 });
+    save(); showToast(`${p.name} Added!`);
+}
+
+function save() { localStorage.setItem('faster_cafe_cart', JSON.stringify(cart)); if (document.getElementById('cart-count')) document.getElementById('cart-count').innerText = cart.reduce((s, i) => s + i.quantity, 0); }
+
+function showToast(msg) {
+    const t = document.getElementById('toast'); if (!t) return;
+    t.querySelector('span').innerText = msg; t.classList.replace('hidden', 'flex'); t.classList.replace('opacity-0', 'opacity-100');
+    setTimeout(() => { t.classList.replace('opacity-100', 'opacity-0'); setTimeout(() => t.classList.replace('flex', 'hidden'), 300); }, 2000);
+}
+
+
+index.html:
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FASTER CAFE | Home</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        red: {
+                            50: '#fef2f2',
+                            100: '#fee2e2',
+                            200: '#fecaca',
+                            600: '#E72229',
+                        },
+                    },
+                },
+            },
+        }
+    </script>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;900&display=swap"
+        rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            scroll-behavior: smooth;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+        }
+
+        .floating {
+            animation: float 4s ease-in-out infinite;
+        }
+
+        .no-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+
+        .no-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+
+        .filter-btn {
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            white-space: nowrap;
+            flex: 0 0 calc(33.333% - 8px); 
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-width: fit-content;
+            cursor: pointer;
+        }
+
+        @media (min-width: 768px) {
+            .filter-btn {
+                flex: 0 0 auto;
+            }
+        }
+
+        .filter-btn:hover:not(.active-cat) {
+            background-color: rgba(0, 0, 0, 0.05);
+            color: #E72229;
+        }
+
+        .active-cat {
+            background-color: #000 !important;
+            color: #fff !important;
+        }
+
+        #cat-scroll {
+            scroll-snap-type: x mandatory;
+        }
+        
+        .filter-btn {
+            scroll-snap-align: start;
+        }
+    </style>
+</head>
+
+<body class="bg-white">
+
+    <div id="navbar-placeholder"></div>
+
+    <div class="relative top-[72px] w-full z-[80]">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6">
+            <div
+                class="bg-gradient-to-r from-red-100 via-white to-red-100 border-x-2 border-b-2 border-red-200 rounded-b-[30px] py-5 px-6 text-center shadow-md">
+                <p class="text-[10px] md:text-sm font-black text-red-600 uppercase tracking-wide">
+                    Note: Some or All images may be for illustration & Some or All images may not be of our restaurant &
+                    some images may not represent that item & one image may be used for multiple items.
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <div id="toast"
+        class="hidden fixed inset-0 z-[200] items-center justify-center pointer-events-none transition-all duration-300 opacity-0 scale-90">
+        <div
+            class="bg-black/90 text-white px-10 py-5 rounded-[30px] shadow-2xl font-black italic flex items-center gap-4 border border-white/10">
+            <span>Item Added!</span>
+            <div class="w-8 h-8 bg-red-600 rounded-full flex items-center justify-center">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24"
+                    stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7" />
+                </svg>
+            </div>
+        </div>
+    </div>
+
+    <div id="pizza-modal"
+        class="hidden fixed inset-0 z-[300] items-center justify-center bg-black/60 backdrop-blur-sm p-4 transition-all duration-300">
+        <div
+            class="modal-content bg-white w-full max-w-md rounded-[40px] shadow-2xl overflow-hidden transform scale-90 opacity-0 transition-all duration-300">
+            <div class="relative p-8 pb-4">
+                <button onclick="closePizzaModal()" class="absolute top-6 right-6 text-gray-400 hover:text-black">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24"
+                        stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="3"
+                            d="M6 18L18 6M6 6l12 12" />
+                    </svg>
+                </button>
+                <span class="text-red-600 font-black text-[10px] uppercase tracking-widest">Customize Your Order</span>
+                <h2 id="modal-pizza-name" class="text-3xl font-black italic uppercase leading-tight mb-4">Item Name</h2>
+            </div>
+            <div id="pizza-options" class="px-8 flex flex-col gap-3"></div>
+            <div class="p-8">
+                <button onclick="confirmPizzaSelection()"
+                    class="w-full bg-black text-white py-5 rounded-2xl font-black text-sm hover:bg-red-600 transition shadow-lg shadow-black/10">CONFIRM
+                    & ADD</button>
+            </div>
+        </div>
+    </div>
+
+    <section class="relative min-h-screen flex items-center pt-40 px-6 bg-slate-50 overflow-hidden">
+        <div class="max-w-7xl mx-auto grid lg:grid-cols-2 gap-12 items-center">
+            <div class="z-10 text-center lg:text-left">
+                <h1 class="text-6xl md:text-8xl font-black italic leading-[0.9] mt-6 mb-8 uppercase">ORDER IT. <br>
+                    <span class="text-red-600">EAT IT.</span></h1>
+                <a href="#menu"
+                    class="bg-black text-white px-10 py-5 rounded-2xl font-black text-lg hover:bg-red-600 transition inline-block shadow-2xl">EXPLORE
+                    MENU</a>
+            </div>
+            <div class="relative flex justify-center lg:justify-end">
+                <img src="doube-decker-burger.png" class="w-48 sm:w-64 lg:w-[450px] floating drop-shadow-2xl">
+            </div>
+        </div>
+    </section>
+
+    <section id="menu" class="max-w-7xl mx-auto px-6 py-24">
+        <div class="text-center mb-12">
+            <h2 class="text-5xl font-black italic uppercase leading-none text-black">Our <span class="text-red-600">
+                    Menu</span></h2>
+        </div>
+
+        <div class="relative group max-w-5xl mx-auto mb-16 top-28 z-50">
+            <button onclick="scrollCats(-200)"
+                class="absolute -left-4 top-1/2 -translate-y-1/2 z-[60] bg-white shadow-lg border border-gray-100 w-10 h-10 rounded-full flex items-center justify-center text-black hover:text-red-600 transition">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24"
+                    stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M15 19l-7-7 7-7" />
+                </svg>
+            </button>
+
+            <div id="cat-scroll"
+                class="flex-1 flex overflow-x-auto no-scrollbar gap-2 bg-gray-100/80 backdrop-blur-md p-2 rounded-[35px] border border-gray-200 scroll-smooth mx-8">
+                <button onclick="handleCategoryClick(this, 'All')" class="filter-btn active-cat px-6 py-2 rounded-full text-[10px] font-black uppercase">All</button>
+                <button onclick="handleCategoryClick(this, 'Pizza')" class="filter-btn text-gray-400 px-6 py-2 rounded-full text-[10px] font-black uppercase">Pizza</button>
+                <button onclick="handleCategoryClick(this, 'Signature Pizza')" class="filter-btn text-gray-400 px-6 py-2 rounded-full text-[10px] font-black uppercase">Signature &nbsp; Pizza</button>
+                <button onclick="handleCategoryClick(this, 'Burgers')" class="filter-btn text-gray-400 px-6 py-2 rounded-full text-[10px] font-black uppercase">Burgers</button>
+                <button onclick="handleCategoryClick(this, 'Deals')" class="filter-btn text-gray-400 px-6 py-2 rounded-full text-[10px] font-black uppercase">Deals</button>
+                <button onclick="handleCategoryClick(this, 'Pizza Deals')" class="filter-btn text-gray-400 px-6 py-2 rounded-full text-[10px] font-black uppercase">Pizza &nbsp; Deals</button>
+                <button onclick="handleCategoryClick(this, 'Special Deals')" class="filter-btn text-gray-400 px-6 py-2 rounded-full text-[10px] font-black uppercase">Special &nbsp; Deals</button>
+                <button onclick="handleCategoryClick(this, 'Fries')" class="filter-btn text-gray-400 px-6 py-2 rounded-full text-[10px] font-black uppercase">Fries</button>
+                <button onclick="handleCategoryClick(this, 'Nuggets')" class="filter-btn text-gray-400 px-6 py-2 rounded-full text-[10px] font-black uppercase">Nuggets</button>
+                <button onclick="handleCategoryClick(this, 'Hot Wings')" class="filter-btn text-gray-400 px-6 py-2 rounded-full text-[10px] font-black uppercase">Wings</button>
+                <button onclick="handleCategoryClick(this, 'Chicken Strips')" class="filter-btn text-gray-400 px-6 py-2 rounded-full text-[10px] font-black uppercase">Strips</button>
+                <button onclick="handleCategoryClick(this, 'Wraps')" class="filter-btn text-gray-400 px-6 py-2 rounded-full text-[10px] font-black uppercase">Wraps</button>
+                <button onclick="handleCategoryClick(this, 'Shawarmas')" class="filter-btn text-gray-400 px-6 py-2 rounded-full text-[10px] font-black uppercase">Shawarma</button>
+                <button onclick="handleCategoryClick(this, 'Paratha Rolls')" class="filter-btn text-gray-400 px-6 py-2 rounded-full text-[10px] font-black uppercase">Paratha</button>
+                <button onclick="handleCategoryClick(this, 'Drinks')" class="filter-btn text-gray-400 px-6 py-2 rounded-full text-[10px] font-black uppercase">Drinks</button>
+                <button onclick="handleCategoryClick(this, 'Others')" class="filter-btn text-gray-400 px-6 py-2 rounded-full text-[10px] font-black uppercase">Others</button>
+            </div>
+
+            <button onclick="scrollCats(200)"
+                class="absolute -right-4 top-1/2 -translate-y-1/2 z-[60] bg-white shadow-lg border border-gray-100 w-10 h-10 rounded-full flex items-center justify-center text-black hover:text-red-600 transition">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24"
+                    stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M9 5l7 7-7 7" />
+                </svg>
+            </button>
+        </div>
+
+        <div id="product-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10"></div>
+    </section>
+
+    <script src="cart.js"></script>
+    <script>
+        function scrollCats(amount) {
+            document.getElementById('cat-scroll').scrollBy({ left: amount, behavior: 'smooth' });
+        }
+
+        function handleCategoryClick(btn, category) {
+            // First call the original function
+            if (typeof displayProducts === 'function') {
+                displayProducts(category);
+            }
+
+            // Small delay ensures we override any class changes made by displayProducts()
+            setTimeout(() => {
+                document.querySelectorAll('.filter-btn').forEach(b => {
+                    b.classList.remove('active-cat');
+                    b.classList.add('text-gray-400');
+                    b.style.backgroundColor = ""; // Reset inline styles if any
+                    b.style.color = "";
+                });
+
+                btn.classList.add('active-cat');
+                btn.classList.remove('text-gray-400');
+            }, 50);
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            if (typeof injectNavbar === 'function') injectNavbar();
+            if (typeof displayProducts === 'function') displayProducts('All');
+        });
+    </script>
+</body>
+</html>
