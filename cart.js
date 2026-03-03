@@ -179,9 +179,9 @@ function openModal(product) {
     } else if (product.category === "Fries") {
         opt = product.name === "Pizza Fries" ? `${renderOption('Regular', 490, true)} ${renderOption('Large', 790)}` : `${renderOption('Regular', 250, true)} ${renderOption('Large', 350)}`;
     } else if (product.category === "Nuggets") {
-        opt = `${renderOption('5 Pieces', 350, true)} ${renderOption('10 Pieces', 650)}`;
+        opt = `${renderOption('5 Pieces', 300, true)} ${renderOption('10 Pieces', 590)}`;
     } else if (product.category === "Chicken Strips") {
-        opt = `${renderOption('3 Pieces', 450, true)} ${renderOption('5 Pieces', 690)}`;
+        opt = `${renderOption('5 Pieces', 420, true)} ${renderOption('10 Pieces', 790)}`;
     }
     
     optionsContainer.innerHTML = opt;
