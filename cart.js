@@ -119,10 +119,10 @@ function displayProducts(category = 'All') {
 
     let htmlContent = "";
     
-    // Custom order for categories when "All" is selected
+    // Updated order: Pizza Deals moved before Special Deals to match your navigation
     const categoryOrder = [
-        "Pizza", "Signature Pizza", "Burgers", "Deals", "Special Deals", 
-        "Pizza Deals", "Fries", "Nuggets", "Hot Wings", "Chicken Strips", 
+        "Pizza", "Signature Pizza", "Burgers", "Deals", "Pizza Deals", 
+        "Special Deals", "Fries", "Nuggets", "Hot Wings", "Chicken Strips", 
         "Wraps", "Shawarmas", "Paratha Rolls", "Drinks", "Others"
     ];
 
