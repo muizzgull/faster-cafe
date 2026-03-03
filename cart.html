@@ -66,10 +66,12 @@
             container.innerHTML = currentCart.map((item, index) => `
                 <div class="bg-gray-50 p-4 md:p-6 rounded-[25px] md:rounded-[35px] border border-gray-100">
                     <div class="flex flex-col sm:flex-row items-center justify-between gap-4">
-                        <div class="flex items-center gap-4">
-                            <img src="${item.image}" class="w-12 h-12 md:w-16 md:h-16 object-contain">
-                            <div>
-                                <h4 class="font-black uppercase italic text-xs md:text-md leading-tight">${item.name}</h4>
+                        <div class="flex items-center gap-4 w-full sm:w-auto">
+                            <div class="w-12 h-12 md:w-16 md:h-16 flex-shrink-0 flex items-center justify-center">
+                                <img src="${item.image}" class="max-w-full max-h-full object-contain">
+                            </div>
+                            <div class="flex-1 min-w-0">
+                                <h4 class="font-black uppercase italic text-xs md:text-md leading-tight truncate">${item.name}</h4>
                                 <p class="text-[#E72229] font-black text-xs md:text-sm">Rs. ${item.price}</p>
                             </div>
                         </div>

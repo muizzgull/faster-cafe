@@ -6,60 +6,68 @@ const products = [
     { id: 5, name: "Zinger Burger", price: 390, image: "zinger-burger.png", category: "Burgers" },
     { id: 6, name: "Monster Fillet", price: 550, image: "monster-fillet-burger.png", category: "Burgers" },
     { id: 7, name: "Double Decker", price: 650, image: "doube-decker-burger.png", category: "Burgers" },
-    { id: 8, name: "Chicken Tikka", price: 1090, image: "chicken-tikka-pizza.PNG", category: "Pizza" },
-    { id: 9, name: "Chicken Fajita", price: 1090, image: "chicken-fajita-pizza.PNG", category: "Pizza" },
-    { id: 10, name: "Faster Special Pizza", price: 1250, image: "faster-special-pizza.PNG", category: "Pizza" },
-    { id: 11, name: "Chicken Mexican Pizza", price: 1150, image: "chicken-mexican-pizza.PNG", category: "Pizza" },
-    { id: 12, name: "Hot & Spicy Pizza", price: 1150, image: "hot-n-spicy-pizza.PNG", category: "Pizza" },
-    { id: 13, name: "Super Supreme Pizza", price: 1150, image: "super-supreme-pizza.PNG", category: "Pizza" },
-    { id: 14, name: "BBQ Lover Pizza", price: 1150, image: "bbq-lover-pizza.PNG", category: "Pizza" },
-    { id: 15, name: "Cheese Lover Pizza", price: 1150, image: "cheese-lover-pizza.PNG", category: "Pizza" },
-    { id: 904, name: "Malai Pizza", price: 1150, image: "malai-pizza.PNG", category: "Signature Pizza" },
-    { id: 905, name: "Doner Pizza", price: 1150, image: "doner-pizza.PNG", category: "Signature Pizza" },
-    { id: 906, name: "Kebab Crust Pizza", price: 1150, image: "kebab-crust-pizza.PNG", category: "Signature Pizza" },
-    { id: 907, name: "Behari Pizza", price: 1150, image: "behari-kebab-pizza.PNG", category: "Signature Pizza" },
-    { id: 908, name: "Crown Crust Pizza", price: 1150, image: "crown-crust-pizza.PNG", category: "Signature Pizza" },
+    { id: 8, name: "Chicken Tikka", price: 1090, image: "chicken-tikka.jpeg", category: "Pizza" },
+    { id: 9, name: "Chicken Fajita", price: 1090, image: "chicken-fajita-pizza.jpeg", category: "Pizza" },
+    { id: 10, name: "Faster Special Pizza", price: 1250, image: "faster-special-pizza.jpeg", category: "Pizza" },
+    { id: 11, name: "Chicken Mexican Pizza", price: 1150, image: "chicken-mexican-pizza.jpeg", category: "Pizza" },
+    { id: 12, name: "Hot & Spicy Pizza", price: 1150, image: "hot-n-spicy-pizza.jpeg", category: "Pizza" },
+    { id: 13, name: "Super Supreme Pizza", price: 1150, image: "super-supreme-pizza.jpeg", category: "Pizza" },
+    { id: 14, name: "BBQ Lover Pizza", price: 1150, image: "bbq-lover-pizza.jpeg", category: "Pizza" },
+    { id: 15, name: "Cheese Lover Pizza", price: 1150, image: "cheese-lover-pizza.jpeg", category: "Pizza" },
+    { id: 904, name: "Malai Pizza", price: 1150, image: "malai-pizza.jpeg", category: "Signature Pizza" },
+    { id: 905, name: "Doner Pizza", price: 1150, image: "doner-pizza.jpeg", category: "Signature Pizza" },
+    { id: 906, name: "Kebab Crust Pizza", price: 1150, image: "kebab-crust-pizza.jpeg", category: "Signature Pizza" },
+    { id: 907, name: "Behari Pizza", price: 1150, image: "behari-kebab-pizza.jpeg", category: "Signature Pizza" },
+    { id: 908, name: "Crown Crust Pizza", price: 1150, image: "crown-crust-pizza.jpeg", category: "Signature Pizza" },
     { id: 101, name: "Chicken Shawarma", price: 260, image: "chicken-shawarma.PNG", category: "Shawarmas" },
-    { id: 102, name: "Zinger Shawarma", price: 390, image: "chicken-shawarma.PNG", category: "Shawarmas" },
-    { id: 103, name: "Grilled Shawarma", price: 390, image: "chicken-shawarma.PNG", category: "Shawarmas" },
-    { id: 104, name: "Open Chicken Shawarma", price: 490, image: "chicken-shawarma.PNG", category: "Shawarmas" },
+    { id: 102, name: "Zinger Shawarma", price: 390, image: "zinger-chicken-shawarma.PNG", category: "Shawarmas" },
+    { id: 103, name: "Grilled Shawarma", price: 390, image: "grilled-chicken-shawarma.PNG", category: "Shawarmas" },
+    { id: 104, name: "Open Chicken Shawarma", price: 490, image: "open-chicken-shawarma.PNG", category: "Shawarmas" },
     { id: 201, name: "Chicken Paratha Roll", price: 290, image: "chicken-paratha.png", category: "Paratha Rolls" },
-    { id: 202, name: "Zinger Paratha Roll", price: 400, image: "chicken-paratha.png", category: "Paratha Rolls" },
-    { id: 203, name: "Grilled Paratha Roll", price: 430, image: "chicken-paratha.png", category: "Paratha Rolls" },
-    { id: 2001, name: "Deal 1: Patty Burger + Fries + Drink", price: 430, image: "deal1.PNG", category: "Deals" },
-    { id: 2002, name: "Deal 2: Zinger Brger + Fries + Drink", price: 550, image: "deal2.PNG", category: "Deals" },
-    { id: 2003, name: "Deal 3: Grilled Burger + Fries + Drink", price: 650, image: "deal3.PNG", category: "Deals" },
-    { id: 2004, name: "Deal 4: 2 Zinger Burgers + Fries + 2 Drinks", price: 990, image: "deal4.PNG", category: "Deals" },
-    { id: 2005, name: "Deal 5: 2 Grilled Burgers + Fries + 2 Drinks", price: 1150, image: "deal5.PNG", category: "Deals" },
-    { id: 2006, name: "Deal 6: 4 Zinger Burgers + Fries + 1.5L", price: 1850, image: "deal6.PNG", category: "Deals" },
-    { id: 3001, name: "Special Deal 1: 2 Pizza Fries + 2 Drinks", price: 1050, image: "special-deal1.jpeg", category: "Special Deals" },
-    { id: 3002, name: "Special Deal 2: 2 Small Pizzas + 2 Drinks", price: 1050, image: "special-deal2.jpeg", category: "Special Deals" },
-    { id: 3003, name: "Special Deal 3: 3 Crunch Burgers + 1L Drink ", price: 1050, image: "special-deal3.jpeg", category: "Special Deals" },
-    { id: 3004, name: "Special Deal 4: 4 Shawarmas + 1L Drink", price: 1050, image: "special-deal4.jpeg", category: "Special Deals" },
-    { id: 3005, name: "Special Deal 5: 2 Patty Burgers + 1 Fries", price: 590, image: "special-deal5.jpeg", category: "Special Deals" },
-    { id: 3006, name: "Special Deal 6: 1 Monster Fillet + Drink", price: 650, image: "special-deal6.jpeg", category: "Special Deals" },
-    { id: 4001, name: "Pizza Deal 1: Med Pizza + Drink", price: 1090, image: "pizza-deal1.PNG", category: "Pizza Deals" },
-    { id: 4002, name: "Pizza Deal 2: Large Pizza + 1L", price: 1590, image: "pizza-deal2.PNG", category: "Pizza Deals" },
-    { id: 4003, name: "Pizza Deal 3: 2 Med + 5 Wings + 1.5L", price: 2590, image: "pizza-deal3.PNG", category: "Pizza Deals" },
-    { id: 4004, name: "Pizza Deal 4: XL + 10 Wings + 1.5L", price: 2820, image: "pizza-deal4.PNG", category: "Pizza Deals" },
-    { id: 4005, name: "Pizza Deal 5: 2 Large + 1.5L", price: 2990, image: "pizza-deal5.PNG", category: "Pizza Deals" },
-    { id: 4006, name: "Pizza Deal 6: Small Pizza + Drink", price: 650, image: "pizza-deal1.PNG", category: "Pizza Deals" },
+    { id: 202, name: "Zinger Paratha Roll", price: 400, image: "zinger-paratha.png", category: "Paratha Rolls" },
+    { id: 203, name: "Grilled Paratha Roll", price: 430, image: "grilled-paratha.png", category: "Paratha Rolls" },
+    { id: 2001, name: "Deal 1: <br> 1 Patty Burger + 1 Fries + Drink", price: 430, image: "deal1.PNG", category: "Deals" },
+    { id: 2002, name: "Deal 2: <br> 1 Zinger Burger + 1 Fries + Drink", price: 550, image: "deal2.PNG", category: "Deals" },
+    { id: 2003, name: "Deal 3: <br> 1 Grilled Burger + 1 Fries + Drink", price: 650, image: "deal3.PNG", category: "Deals" },
+    { id: 2004, name: "Deal 4: <br> 2 Zinger Burgers + 2 Fries + 2 Drinks", price: 990, image: "deal4.PNG", category: "Deals" },
+    { id: 2005, name: "Deal 5: <br> 2 Grilled Burgers + 2 Fries + 2 Drinks", price: 1150, image: "deal5.PNG", category: "Deals" },
+    { id: 2006, name: "Deal 6: <br> 4 Zinger Burgers + 1 Fries + 1.5L", price: 1850, image: "deal6.PNG", category: "Deals" },
+    { id: 3001, name: "Special Deal 1: <br> 2 Pizza Fries + 2 Drinks", price: 1050, image: "special-deal1.png", category: "Special Deals" },
+    { id: 3002, name: "Special Deal 2: <br> 2 Small Pizzas + 2 Drinks", price: 1050, image: "special-deal2.jpeg", category: "Special Deals" },
+    { id: 3003, name: "Special Deal 3: <br> 3 Crunch Burgers + 1L Drink ", price: 1050, image: "special-deal3.png", category: "Special Deals" },
+    { id: 3004, name: "Special Deal 4: <br> 4 Shawarmas + 1L Drink", price: 1050, image: "special-deal4.png", category: "Special Deals" },
+    { id: 3005, name: "Special Deal 5: <br> 2 Patty Burgers + 1 Fries", price: 590, image: "special-deal5.png", category: "Special Deals" },
+    { id: 3006, name: "Special Deal 6: <br> 1 Monster Fillet + Drink", price: 650, image: "special-deal6.jpeg", category: "Special Deals" },
+    { id: 4001, name: "Pizza Deal 1: <br> 1 Medium Pizza + 1 Drink(500 ml)", price: 1090, image: "pizza-deal1.jpeg", category: "Pizza Deals" },
+    { id: 4002, name: "Pizza Deal 2: <br> 1 Large Pizza + 1 Liter Drink", price: 1590, image: "pizza-deal2.jpeg", category: "Pizza Deals" },
+    { id: 4003, name: "Pizza Deal 3: <br> 2 Medium + 5 hot Wings + 1.5 liter Drink", price: 2590, image: "pizza-deal3.jpeg", category: "Pizza Deals" },
+    { id: 4004, name: "Pizza Deal 4: <br> 1 XL + 10 Wings + 1.5 Liter Drink", price: 2820, image: "pizza-deal4.jpeg", category: "Pizza Deals" },
+    { id: 4005, name: "Pizza Deal 5: <br> 2 Large + 1.5 Liter Drink", price: 2990, image: "pizza-deal5.jpeg", category: "Pizza Deals" },
+    { id: 4006, name: "Pizza Deal 6: <br> 1 Small Pizza + 1 Drink(NR)", price: 650, image: "pizza-deal1.jpeg", category: "Pizza Deals" },
     { id: 251, name: "Chicken Wrap", price: 550, image: "chicken-wrap.png", category: "Wraps" },
-    { id: 252, name: "Grilled Fillet Wrap", price: 550, image: "chicken-wrap.png", category: "Wraps" },
-    { id: 253, name: "Breaded Fillet Wrap", price: 490, image: "chicken-wrap.png", category: "Wraps" },
+    { id: 252, name: "Grilled Fillet Wrap", price: 550, image: "grilled-fillet-wrap.png", category: "Wraps" },
+    { id: 253, name: "Zinger Wrap", price: 490, image: "zinger-wrap.png", category: "Wraps" },
     { id: 451, name: "Plain Fries", price: 250, image: "fries.PNG", category: "Fries" },
-    { id: 452, name: "Loaded Fries", price: 650, image: "pizza-fries.PNG", category: "Fries" },
+    { id: 452, name: "Loaded Fries", price: 650, image: "loaded-fries.PNG", category: "Fries" },
     { id: 453, name: "Pizza Fries", price: 490, image: "pizza-fries.PNG", category: "Fries" },
-    { id: 601, name: "Chicken Hot Wings", price: 350, image: "hot-wings.PNG", category: "Hot Wings" },
-    { id: 602, name: "Oven Baked Wings", price: 350, image: "hot-wings.PNG", category: "Hot Wings" },
-    { id: 603, name: "Honey Wings", price: 390, image: "hot-wings.PNG", category: "Hot Wings" },
-    { id: 604, name: "Malai Wings", price: 390, image: "hot-wings.PNG", category: "Hot Wings" },
-    { id: 701, name: "Chicken Nuggets", price: 300, image: "nuggets.PNG", category: "Nuggets" },
+    { id: 601, name: "Chicken Hot Wings", price: 350, image: "chicke-wings.PNG", category: "Hot Wings" },
+    { id: 602, name: "Oven Baked Wings", price: 350, image: "chicken-baked-wings.PNG", category: "Hot Wings" },
+    { id: 603, name: "Honey Wings", price: 390, image: "chicken-honey-wings.PNG", category: "Hot Wings" },
+    { id: 604, name: "Malai Wings", price: 390, image: "chicken-malai-wings.PNG", category: "Hot Wings" },
+    { id: 701, name: "Chicken Nuggets", price: 300, image: "chicken-nuggets.PNG", category: "Nuggets" },
     { id: 703, name: "Chicken Strips", price: 420, image: "chicken-strips.PNG", category: "Chicken Strips" },
-    { id: 801, name: "Mint Margarita", price: 250, image: "mint-margaritta.png", category: "Drinks" },
-    { id: 802, name: "Strawberry Lime", price: 150, image: "strawberry-lime.png", category: "Drinks" },
-    { id: 803, name: "Fresh Lime", price: 200, image: "fresh-lime.png", category: "Drinks" },
-    { id: 403, name: "Cheese Stick", price: 320, image: "pasta.png", category: "Others" },
+    { id: 801, name: "NR - Drink", price: 90, image: "nr-drink.jpeg", category: "Drinks" },
+    { id: 802, name: "Half Liter Drink", price: 140, image: "half-liter-drink.jpeg", category: "Drinks" },
+    { id: 803, name: "1 Liter Drink", price: 180, image: "one-liter-drink.jpeg", category: "Drinks" },
+    { id: 804, name: "1.5 Liter Drink", price: 250, image: "one-5-liter-drink.jpeg", category: "Drinks" },
+    { id: 805, name: "Mint Margarita", price: 250, image: "mint-margaritta.png", category: "Drinks" },
+    { id: 806, name: "Strawberry Lime", price: 150, image: "strawberry-lime.png", category: "Drinks" },
+    { id: 807, name: "Fresh Lime", price: 200, image: "fresh-lime.png", category: "Drinks" },
+    // { id: 804, name: "NR - Drink", price: 90, image: "nr-drink.jpeg", category: "Drinks" },
+    // { id: 805, name: "Half Liter Drink", price: 140, image: "half-liter-drink.jpeg", category: "Drinks" },
+    // { id: 806, name: "1 Liter Drink", price: 180, image: "one-liter-drink.jpeg", category: "Drinks" },
+    // { id: 807, name: "1.5 Liter Drink", price: 250, image: "fresh-lime.png", category: "Drinks" },
+    { id: 403, name: "Cheese Stick", price: 320, image: "cheese-stick.png", category: "Others" },
     { id: 404, name: "Alfredo Pasta", price: 350, image: "pasta.png", category: "Others" }
 ];
 
@@ -114,19 +122,26 @@ function displayProducts(category = 'All') {
     });
 
     let htmlContent = "";
-    const cats = category === 'All' ? [...new Set(products.map(p => p.category))] : [category];
+    
+    // Custom order for categories when "All" is selected
+    const categoryOrder = [
+        "Pizza", "Signature Pizza", "Burgers", "Deals", "Special Deals", 
+        "Pizza Deals", "Fries", "Nuggets", "Hot Wings", "Chicken Strips", 
+        "Wraps", "Shawarmas", "Paratha Rolls", "Drinks", "Others"
+    ];
+
+    const cats = category === 'All' ? categoryOrder : [category];
     
     cats.forEach(cat => {
         const filtered = products.filter(p => p.category === cat);
         if (filtered.length > 0) {
-            // Updated margin: mt-28 for mobile, md:mt-48 for large screens
             htmlContent += `<div class="col-span-full mt-28 md:mt-48 mb-4 md:mb-6"><h2 class="text-xl md:text-3xl font-black italic uppercase border-l-4 md:border-l-8 border-[#E72229] pl-3 md:pl-4 text-black">${cat}</h2></div>`;
             htmlContent += filtered.map(product => {
                 const needsModal = ["Pizza", "Signature Pizza", "Hot Wings", "Nuggets", "Chicken Strips"].includes(product.category) || (product.category === "Fries" && product.name !== "Loaded Fries");
                 return `
                 <div class="bg-white p-3 md:p-6 rounded-[25px] md:rounded-[40px] shadow-sm hover:shadow-xl transition-all border border-gray-100 group flex flex-col justify-between h-full">
                     <div class="h-32 md:h-48 flex items-center justify-center overflow-hidden mb-3 rounded-2xl">
-                        <img src="${product.image}" class="max-h-full w-auto object-contain transition duration-500" onerror="this.src='https://via.placeholder.com/300?text=Food'">
+                        <img src="${product.image}" class="max-h-full w-auto object-cover transition duration-500" onerror="this.src='https://via.placeholder.com/300?text=Food'">
                     </div>
                     <div>
                         <h3 class="text-xs md:text-lg font-black uppercase italic leading-tight mb-1 line-clamp-2">${product.name}</h3>

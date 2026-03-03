@@ -18,6 +18,13 @@
 <body class="bg-gray-50 pt-24 pb-12 px-4 md:px-6">
     <div id="navbar-placeholder"></div>
 
+    <div id="closed-toast" class="hidden fixed inset-0 z-[600] flex items-center justify-center pointer-events-none">
+        <div class="bg-black text-white px-10 py-6 rounded-[30px] shadow-2xl border border-red-600/50 text-center animate-bounce pointer-events-auto">
+            <p class="font-black italic uppercase text-lg md:text-xl">We are Currently Closed!</p>
+            <p class="text-[12px] font-bold text-gray-400 mt-1">Opening Hours: 5:00 PM - 1:30 AM</p>
+        </div>
+    </div>
+
     <div id="confirm-modal" class="hidden fixed inset-0 z-[500] items-center justify-center bg-black/60 backdrop-blur-sm p-4 transition-all duration-300">
         <div class="modal-animate bg-white w-full max-w-sm rounded-[40px] shadow-2xl overflow-hidden transform scale-90 opacity-0 p-8 text-center">
             <div class="w-20 h-20 bg-red-50 rounded-full flex items-center justify-center mx-auto mb-6">
@@ -68,6 +75,23 @@
         (function() { if(PUBLIC_KEY !== "YOUR_PUBLIC_KEY") emailjs.init(PUBLIC_KEY); })();
 
         function showConfirmModal() {
+            const now = new Date();
+            const utc = now.getTime() + (now.getTimezoneOffset() * 60000);
+            const pktTime = new Date(utc + (3600000 * 5)); 
+            const hour = pktTime.getHours();
+            const min = pktTime.getMinutes();
+            const currentTimeInMinutes = (hour * 60) + min;
+
+            // 5:00 PM (1020 mins) to 1:30 AM (90 mins)
+            const isOpen = (currentTimeInMinutes >= 1020 || currentTimeInMinutes < 90);
+
+            if (!isOpen) {
+                const toast = document.getElementById('closed-toast');
+                toast.classList.replace('hidden', 'flex');
+                setTimeout(() => { toast.classList.replace('flex', 'hidden'); }, 4000);
+                return;
+            }
+
             const modal = document.getElementById('confirm-modal');
             modal.classList.replace('hidden', 'flex');
             setTimeout(() => {
