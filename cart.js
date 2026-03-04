@@ -161,7 +161,11 @@ function confirmPizzaSelection() {
     const s = document.querySelector('input[name="item-choice"]:checked'); 
     if (!s) return;
     const cleanName = currentItem.name.replace(/<br\s*\/?>/gi, ' ').replace(/\s+/g, ' ').trim();
-    const newItem = { ...currentItem, id: `${currentItem.id}-${s.value}`, name: `${cleanName} (${s.value})`, price: parseInt(s.getAttribute('data-price')), quantity: 1 };
+    
+    // Logic to ensure flavor is in brackets
+    const displayName = `${cleanName} (${s.value})`;
+    
+    const newItem = { ...currentItem, id: `${currentItem.id}-${s.value}`, name: displayName, price: parseInt(s.getAttribute('data-price')), quantity: 1 };
     const ex = cart.find(i => i.id === newItem.id); if (ex) ex.quantity += 1; else cart.push(newItem);
     save(); closePizzaModal(); showToast(`Added to Cart!`);
 }

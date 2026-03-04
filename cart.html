@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
@@ -7,21 +8,31 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
         tailwind.config = {
-          theme: { extend: { colors: { red: { 600: '#E72229' } } } }
+            theme: { extend: { colors: { red: { 600: '#E72229' } } } }
         }
     </script>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;900&display=swap" rel="stylesheet">
     <style>
-        body { font-family: 'Poppins', sans-serif; overflow-x: hidden; }
-        input::placeholder, textarea::placeholder { color: #9ca3af; font-weight: 600; }
+        body {
+            font-family: 'Poppins', sans-serif;
+            overflow-x: hidden;
+        }
+
+        input::placeholder,
+        textarea::placeholder {
+            color: #9ca3af;
+            font-weight: 600;
+        }
     </style>
 </head>
+
 <body class="bg-gray-50 pt-24 pb-20 px-4 md:px-6">
     <div id="navbar-placeholder"></div>
     <main class="max-w-3xl mx-auto space-y-6 md:space-y-8">
         <div class="bg-white p-6 md:p-8 rounded-[30px] md:rounded-[40px] shadow-sm border border-gray-100">
             <h2 class="text-xl md:text-2xl font-black mb-6 italic uppercase flex items-center gap-3">
-                <span class="bg-[#E72229] text-white w-7 h-7 md:w-8 md:h-8 rounded-full flex items-center justify-center text-xs not-italic">1</span>
+                <span
+                    class="bg-[#E72229] text-white w-7 h-7 md:w-8 md:h-8 rounded-full flex items-center justify-center text-xs not-italic">1</span>
                 Your Selection
             </h2>
             <div id="cart-items" class="space-y-4"></div>
@@ -31,19 +42,26 @@
             </div>
         </div>
 
-        <div id="checkout-section" class="bg-white p-6 md:p-8 rounded-[30px] md:rounded-[40px] shadow-sm border border-gray-100 hidden">
+        <div id="checkout-section"
+            class="bg-white p-6 md:p-8 rounded-[30px] md:rounded-[40px] shadow-sm border border-gray-100 hidden">
             <h2 class="text-xl md:text-2xl font-black mb-6 italic uppercase flex items-center gap-3">
-                <span class="bg-[#E72229] text-white w-7 h-7 md:w-8 md:h-8 rounded-full flex items-center justify-center text-xs not-italic">2</span>
+                <span
+                    class="bg-[#E72229] text-white w-7 h-7 md:w-8 md:h-8 rounded-full flex items-center justify-center text-xs not-italic">2</span>
                 Delivery Details
             </h2>
             <form id="checkout-form" class="space-y-4 md:space-y-5">
-                <input type="text" id="name" placeholder="Full Name" required class="w-full p-4 md:p-5 bg-gray-50 rounded-2xl md:rounded-3xl outline-none focus:ring-2 ring-[#E72229] font-bold text-sm">
+                <input type="text" id="name" placeholder="Full Name" required
+                    class="w-full p-4 md:p-5 bg-gray-50 rounded-2xl md:rounded-3xl outline-none focus:ring-2 ring-[#E72229] font-bold text-sm">
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-5">
-                    <input type="tel" id="phone" placeholder="Phone (e.g. 03001234567)" required class="p-4 md:p-5 bg-gray-50 rounded-2xl md:rounded-3xl outline-none focus:ring-2 ring-[#E72229] font-bold text-sm">
-                    <input type="email" id="email" placeholder="Email Address" required class="p-4 md:p-5 bg-gray-50 rounded-2xl md:rounded-3xl outline-none focus:ring-2 ring-[#E72229] font-bold text-sm">
+                    <input type="tel" id="phone" placeholder="Phone (e.g. 03001234567)" required
+                        class="p-4 md:p-5 bg-gray-50 rounded-2xl md:rounded-3xl outline-none focus:ring-2 ring-[#E72229] font-bold text-sm">
+                    <input type="email" id="email" placeholder="Email Address" required
+                        class="p-4 md:p-5 bg-gray-50 rounded-2xl md:rounded-3xl outline-none focus:ring-2 ring-[#E72229] font-bold text-sm">
                 </div>
-                <textarea id="address" placeholder="Delivery Address" required rows="3" class="w-full p-4 md:p-5 bg-gray-50 rounded-2xl md:rounded-3xl outline-none focus:ring-2 ring-[#E72229] font-bold text-sm resize-none"></textarea>
-                <button type="submit" class="w-full bg-black text-white py-5 md:py-6 rounded-[25px] md:rounded-[30px] font-black text-lg md:text-xl hover:bg-[#E72229] transition-all shadow-xl uppercase italic">Proceed</button>
+                <textarea id="address" placeholder="Delivery Address" required rows="3"
+                    class="w-full p-4 md:p-5 bg-gray-50 rounded-2xl md:rounded-3xl outline-none focus:ring-2 ring-[#E72229] font-bold text-sm resize-none"></textarea>
+                <button type="submit"
+                    class="w-full bg-black text-white py-5 md:py-6 rounded-[25px] md:rounded-[30px] font-black text-lg md:text-xl hover:bg-[#E72229] transition-all shadow-xl uppercase italic">Proceed</button>
             </form>
         </div>
     </main>
@@ -71,7 +89,7 @@
                                 <img src="${item.image}" class="max-w-full max-h-full object-contain">
                             </div>
                             <div class="flex-1 min-w-0">
-                                <h4 class="font-black uppercase italic text-xs md:text-md leading-tight truncate">${item.name}</h4>
+<h4 class="font-black uppercase italic text-xs md:text-md whitespace-normal">${item.name}</h4>
                                 <p class="text-[#E72229] font-black text-xs md:text-sm">Rs. ${item.price}</p>
                             </div>
                         </div>
@@ -102,4 +120,5 @@
         document.addEventListener('DOMContentLoaded', () => { injectNavbar(); renderCart(); });
     </script>
 </body>
+
 </html>
