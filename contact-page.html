@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Contact & Feedback | FASTER CAFE</title>
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;900&display=swap" rel="stylesheet">
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        red: {
+                            600: '#E72229',
+                        },
+                    },
+                },
+            },
+        }
+    </script>
+
+    <style>
+        body { font-family: 'Poppins', sans-serif; scroll-behavior: smooth; }
+
+        /* Social Link Styling */
+        .social-link {
+            transition: all 0.3s ease;
+            position: relative;
+            display: inline-block;
+            width: fit-content;
+        }
+
+        .social-link::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -2px;
+            left: 0;
+            background-color: #E72229;
+            transition: width 0.3s ease;
+        }
+
+        .social-link:hover::after { width: 100%; }
+
+        .custom-textarea::-webkit-scrollbar { width: 6px; }
+        .custom-textarea::-webkit-scrollbar-thumb { background: #E72229; border-radius: 10px; }
+    </style>
+</head>
+
+<body class="bg-gray-50 pt-24 pb-20 px-4 md:px-6">
+    <div id="success-popup" class="hidden fixed inset-0 z-[2000] flex items-center justify-center px-4">
+    <div class="bg-black text-white p-8 rounded-[40px] shadow-2xl flex flex-col items-center border-2 border-[#E72229] transform transition-all scale-90 opacity-0 duration-300 ease-out" id="popup-content">
+        <div class="w-16 h-16 bg-[#E72229] rounded-full flex items-center justify-center mb-4">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-10 w-10 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7" />
+            </svg>
+        </div>
+        <h3 class="text-2xl font-black italic uppercase italic tracking-tighter">Thanks For Your Recommendation.!</h3>
+    </div>
+</div>
+
+    <div id="navbar-placeholder"></div>
+
+    <main class="relative max-w-3xl mx-auto">
+        
+        <section class="py-10 text-center">
+            <h1 class="text-4xl md:text-6xl font-black italic uppercase mb-8 leading-none">
+                Contact <span class="text-[#E72229]">&nbsp;Us</span>
+            </h1>
+            
+            <div class="flex flex-col items-center gap-4">
+                <a href="https://wa.me/923338334353" target="_blank" class="social-link text-xl md:text-2xl font-bold uppercase italic hover:text-[#E72229]">
+                    0333 8334353
+                </a>
+            </div>
+        </section>
+
+        <hr class="max-w-2xl mx-auto my-12 border-gray-200">
+
+        <section>
+            <div class="bg-white p-8 md:p-12 rounded-[30px] md:rounded-[40px] border border-gray-100 shadow-sm">
+                <div class="mb-10 text-center md:text-left">
+                    <h2 class="text-3xl font-black italic uppercase leading-none">Any <span class="text-[#E72229]">Recommendation?</span></h2>
+                    <p class="text-gray-400 font-bold text-[10px] uppercase mt-2 tracking-widest">Your feedback keeps us moving</p>
+                </div>
+
+                <form id="recommendation-form" class="space-y-5">
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
+                        <div class="space-y-2">
+                            <label class="ml-4 text-[10px] font-black uppercase text-gray-400">First Name</label>
+                            <input type="text" name="from_name" required placeholder="John" 
+                                class="w-full p-5 bg-gray-50 rounded-3xl outline-none focus:ring-2 ring-[#E72229] font-bold text-sm border border-gray-100">
+                        </div>
+                        <div class="space-y-2">
+                            <label class="ml-4 text-[10px] font-black uppercase text-gray-400">Last Name</label>
+                            <input type="text" name="last_name" required placeholder="Doe" 
+                                class="w-full p-5 bg-gray-50 rounded-3xl outline-none focus:ring-2 ring-[#E72229] font-bold text-sm border border-gray-100">
+                        </div>
+                    </div>
+
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
+                        <div class="space-y-2">
+                            <label class="ml-4 text-[10px] font-black uppercase text-gray-400">Contact Number</label>
+                            <input type="tel" name="user_phone" required 
+                                pattern="[0-9]+" oninput="this.value = this.value.replace(/[^0-9]/g, '')"
+                                placeholder="03XXXXXXXXX" 
+                                class="w-full p-5 bg-gray-50 rounded-3xl outline-none focus:ring-2 ring-[#E72229] font-bold text-sm border border-gray-100">
+                        </div>
+                        <div class="space-y-2">
+                            <label class="ml-4 text-[10px] font-black uppercase text-gray-400">Gmail</label>
+                            <input type="email" name="user_email" required placeholder="example@gmail.com" 
+                                class="w-full p-5 bg-gray-50 rounded-3xl outline-none focus:ring-2 ring-[#E72229] font-bold text-sm border border-gray-100">
+                        </div>
+                    </div>
+
+                    <div class="space-y-2">
+                        <label class="ml-4 text-[10px] font-black uppercase text-gray-400">Your Recommendation</label>
+                        <textarea name="message" required placeholder="Tell us more..." rows="5"
+                            class="custom-textarea w-full p-6 bg-gray-50 rounded-[30px] outline-none focus:ring-2 ring-[#E72229] font-bold text-sm border border-gray-100 resize-none overflow-y-auto"></textarea>
+                    </div>
+
+                    <button type="submit" id="submit-btn"
+                        class="w-full bg-black text-white py-6 rounded-[30px] font-black text-xl hover:bg-[#E72229] transition-all shadow-xl uppercase italic">
+                        Send Feedback
+                    </button>
+                </form>
+            </div>
+        </section>
+    </main>
+
+    <script src="cart.js"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+    
+    <script>
+        // Initialize Navbar and EmailJS
+        document.addEventListener('DOMContentLoaded', () => {
+            if (typeof injectNavbar === 'function') injectNavbar();
+            emailjs.init("ElnHvQ6wHCkKiyWJZ"); 
+        });
+
+        // Form Logic
+        const contactForm = document.getElementById('recommendation-form');
+        const btn = document.getElementById('submit-btn');
+
+       contactForm.addEventListener('submit', function(event) {
+            event.preventDefault();
+            btn.innerText = 'SENDING...';
+            btn.disabled = true;
+
+            emailjs.sendForm('service_sh9mzrd', 'template_kysats1', this)
+                .then(function() {
+                    // 1. Show the Popup
+                    const popup = document.getElementById('success-popup');
+                    const content = document.getElementById('popup-content');
+                    
+                    popup.classList.remove('hidden');
+                    // Small timeout to allow the transition to trigger
+                    setTimeout(() => {
+                        content.classList.remove('scale-90', 'opacity-0');
+                        content.classList.add('scale-100', 'opacity-100');
+                    }, 10);
+
+                    // 2. Handle Button and Reset
+                    btn.innerText = 'SUCCESS!';
+                    contactForm.reset();
+
+                    // 3. Hide everything after 3 seconds
+                    setTimeout(() => { 
+                        content.classList.replace('scale-100', 'scale-90');
+                        content.classList.replace('opacity-100', 'opacity-0');
+                        
+                        setTimeout(() => {
+                            popup.classList.add('hidden');
+                            btn.innerText = 'SEND FEEDBACK'; 
+                            btn.disabled = false; 
+                        }, 300);
+                    }, 3000);
+
+                }, function(error) {
+                    alert('Error: ' + JSON.stringify(error));
+                    btn.innerText = 'TRY AGAIN';
+                    btn.disabled = false;
+                });
+        });
+    </script>
+</body>
+</html>

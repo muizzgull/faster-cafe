@@ -83,6 +83,7 @@ function injectNavbar() {
             <nav class="flex gap-4 md:gap-8 items-center font-bold text-[10px] md:text-xs uppercase tracking-widest">
                 <a href="index.html" class="hover:text-[#E72229]">Home</a>
                 <a href="orders.html" class="hover:text-[#E72229]">Orders</a>
+                <a href="contact-page.html" class="hover:text-[#E72229]">Contact</a>
                 <a href="cart.html" class="relative flex items-center gap-2 hover:text-[#E72229]">
                     Cart <span id="cart-count" class="bg-[#E72229] text-white w-4 h-4 md:w-5 md:h-5 flex items-center justify-center rounded-full text-[8px] md:text-[10px]">${cartCount}</span>
                 </a>
