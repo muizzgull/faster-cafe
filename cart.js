@@ -61,10 +61,10 @@ const products = [
     { id: 803, name: "1 Liter Drink", price: 180, image: "one-liter-drink.jpeg", category: "Drinks" },
     { id: 804, name: "1.5 Liter Drink", price: 250, image: "one-5-liter-drink.jpeg", category: "Drinks" },
     { id: 805, name: "Mint Margarita", price: 250, image: "mint-margaritta.png", category: "Drinks" },
-    { id: 806, name: "Strawberry Lime", price: 150, image: "strawberry-lime.png", category: "Drinks" },
+    { id: 806, name: "Strawberry Lime", price: 200, image: "strawberry-lime.png", category: "Drinks" },
     { id: 807, name: "Fresh Lime", price: 200, image: "fresh-lime.png", category: "Drinks" },
-    { id: 403, name: "Cheese Stick", price: 320, image: "cheese-stick.png", category: "Others" },
-    { id: 404, name: "Alfredo Pasta", price: 350, image: "pasta.png", category: "Others" }
+    { id: 403, name: "Cheese Stick", price: 590, image: "cheese-stick.png", category: "Others" },
+    { id: 404, name: "Alfredo Pasta", price: 590, image: "pasta.png", category: "Others" }
 ];
 
 let cart = JSON.parse(localStorage.getItem('faster_cafe_cart')) || [];
