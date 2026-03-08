@@ -1,4 +1,8 @@
 const products = [
+    { id: 5001, name: "Iftar Platter: <br> 1 Zinger + 2 Small Pizza + 4 Chicken Nuggets + 4 Samosas + Fries + Dates + 2 Drinks", price: 1300, image: "iftar-platter.jpeg", category: "Ramadan Deals" },
+    { id: 5002, name: "After Taraweeh Deal 1: <br> 2 Pizza Fries + 2 Drinks(NR)", price: 1000, image: "after-taraweeh-1.jpeg", category: "Ramadan Deals" },
+    { id: 5003, name: "After Taraweeh Deal 2: <br> 2 Small Pizzas + 2 Drink(NR)", price: 1000, image: "after-taraweeh-2.jpeg", category: "Ramadan Deals" },
+    { id: 5004, name: "After Taraweeh Deal 3: <br> 2 Monster Fillet Burgers + 2 Drinks(NR)", price: 1000, image: "after-taraweeh-3.jpeg", category: "Ramadan Deals" },
     { id: 1, name: "Patty Burger", price: 320, image: "patty-burger.png", category: "Burgers" },
     { id: 2, name: "Crunch Burger", price: 320, image: "cruch-burger.png", category: "Burgers" },
     { id: 3, name: "Grilled Burger", price: 490, image: "grilled-burger.png", category: "Burgers" },
@@ -95,7 +99,7 @@ function injectNavbar() {
 function displayProducts(category = 'All') {
     const grid = document.getElementById('product-grid');
     if (!grid) return;
-    const categoryOrder = ["Pizza", "Signature Pizza", "Burgers", "Deals", "Pizza Deals", "Special Deals", "Fries", "Nuggets", "Hot Wings", "Chicken Strips", "Wraps", "Shawarmas", "Paratha Rolls", "Drinks", "Others"];
+    const categoryOrder = ["Ramadan Deals", "Pizza", "Signature Pizza", "Burgers", "Deals", "Pizza Deals", "Special Deals", "Fries", "Nuggets", "Hot Wings", "Chicken Strips", "Wraps", "Shawarmas", "Paratha Rolls", "Drinks", "Others"];
     const cats = category === 'All' ? categoryOrder : [category];
     let htmlContent = "";
     cats.forEach(cat => {
