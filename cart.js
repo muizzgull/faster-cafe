@@ -1,5 +1,5 @@
 const products = [
-    { id: 5001, name: "Iftar Platter: <br> 1 Zinger + 2 Small Pizza + 4 Chicken Nuggets + 4 Samosas + Fries + Dates + 2 Drinks", price: 1300, image: "iftar-platter.jpeg", category: "Ramadan Deals" },
+    { id: 5001, name: "Iftar Platter: <br> 1 Zinger Burger + 1 Small Pizza + 4 Chicken Nuggets + 4 Samosas + Fries + Dates + 2 Drinks", price: 1300, image: "iftar-platter.jpeg", category: "Ramadan Deals" },
     { id: 5002, name: "After Taraweeh Deal 1: <br> 2 Pizza Fries + 2 Drinks(NR)", price: 999, image: "after-taraweeh-1.jpeg", category: "Ramadan Deals" },
     { id: 5003, name: "After Taraweeh Deal 2: <br> 2 Small Pizzas + 2 Drink(NR)", price: 999, image: "after-taraweeh-2.jpeg", category: "Ramadan Deals" },
     { id: 5004, name: "After Taraweeh Deal 3: <br> 2 Monster Fillet Burgers + 2 Drinks(NR)", price: 999, image: "after-taraweeh-3.jpeg", category: "Ramadan Deals" },
