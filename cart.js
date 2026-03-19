@@ -1,8 +1,7 @@
 const products = [
-    { id: 5001, name: "Iftar Platter: <br> 1 Zinger + 2 Small Pizza + 4 Chicken Nuggets + 4 Samosas + Fries + Dates + 2 Drinks", price: 1300, image: "iftar-platter.jpeg", category: "Ramadan Deals" },
-    { id: 5002, name: "After Taraweeh Deal 1: <br> 2 Pizza Fries + 2 Drinks(NR)", price: 1000, image: "after-taraweeh-1.jpeg", category: "Ramadan Deals" },
-    { id: 5003, name: "After Taraweeh Deal 2: <br> 2 Small Pizzas + 2 Drink(NR)", price: 1000, image: "after-taraweeh-2.jpeg", category: "Ramadan Deals" },
-    { id: 5004, name: "After Taraweeh Deal 3: <br> 2 Monster Fillet Burgers + 2 Drinks(NR)", price: 1000, image: "after-taraweeh-3.jpeg", category: "Ramadan Deals" },
+    { id: 5001, name: "Eid Deal 1: <br> 1 Large Pizza + 5 Hot Wings + 5 Chicken Nuggets + 1 Drink(1.5Ltr)", price: 2490, image: "eid-deal1.jpeg", category: "Eid Deals" },
+    { id: 5002, name: "Eid Deal 2: <br> 1 Small Pizza + 1 Drink(NR)", price: 690, image: "eid-deal2.jpeg", category: "Eid Deals" },
+    { id: 5003, name: "Eid Deal 3: <br> 4 Zinger Burgers + 1 Drink(1.5Ltr)", price: 1650, image: "eid-deal3.jpeg", category: "Eid Deals" },
     { id: 1, name: "Patty Burger", price: 320, image: "patty-burger.png", category: "Burgers" },
     { id: 2, name: "Crunch Burger", price: 320, image: "cruch-burger.png", category: "Burgers" },
     { id: 3, name: "Grilled Burger", price: 490, image: "grilled-burger.png", category: "Burgers" },
