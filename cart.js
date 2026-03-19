@@ -1,8 +1,7 @@
 const products = [
-    { id: 5001, name: "Iftar Platter: <br> 1 Zinger + 2 Small Pizza + 4 Chicken Nuggets + 4 Samosas + Fries + Dates + 2 Drinks", price: 1300, image: "iftar-platter.jpeg", category: "Ramadan Deals" },
-    { id: 5002, name: "After Taraweeh Deal 1: <br> 2 Pizza Fries + 2 Drinks(NR)", price: 1000, image: "after-taraweeh-1.jpeg", category: "Ramadan Deals" },
-    { id: 5003, name: "After Taraweeh Deal 2: <br> 2 Small Pizzas + 2 Drink(NR)", price: 1000, image: "after-taraweeh-2.jpeg", category: "Ramadan Deals" },
-    { id: 5004, name: "After Taraweeh Deal 3: <br> 2 Monster Fillet Burgers + 2 Drinks(NR)", price: 1000, image: "after-taraweeh-3.jpeg", category: "Ramadan Deals" },
+    { id: 5001, name: "Eid Deal 1: <br> 1 Large Pizza + 5 Hot Wings + 5 Chicken Nuggets + 1 Drink(1.5Ltr)", price: 2490, image: "eid-deal1.jpeg", category: "Eid Deals" },
+    { id: 5002, name: "Eid Deal 2: <br> 1 Small Pizza + 1 Drink(NR)", price: 690, image: "eid-deal2.jpeg", category: "Eid Deals" },
+    { id: 5003, name: "Eid Deal 3: <br> 4 Zinger Burgers + 1 Drink(1.5Ltr)", price: 1650, image: "eid-deal3.jpeg", category: "Eid Deals" },
     { id: 1, name: "Patty Burger", price: 320, image: "patty-burger.png", category: "Burgers" },
     { id: 2, name: "Crunch Burger", price: 320, image: "cruch-burger.png", category: "Burgers" },
     { id: 3, name: "Grilled Burger", price: 490, image: "grilled-burger.png", category: "Burgers" },
@@ -99,7 +98,7 @@ function injectNavbar() {
 function displayProducts(category = 'All') {
     const grid = document.getElementById('product-grid');
     if (!grid) return;
-    const categoryOrder = ["Ramadan Deals", "Pizza", "Signature Pizza", "Burgers", "Deals", "Pizza Deals", "Special Deals", "Fries", "Nuggets", "Hot Wings", "Chicken Strips", "Wraps", "Shawarmas", "Paratha Rolls", "Drinks", "Others"];
+    const categoryOrder = ["Eid Deals", "Pizza", "Signature Pizza", "Burgers", "Deals", "Pizza Deals", "Special Deals", "Fries", "Nuggets", "Hot Wings", "Chicken Strips", "Wraps", "Shawarmas", "Paratha Rolls", "Drinks", "Others"];
     const cats = category === 'All' ? categoryOrder : [category];
     let htmlContent = "";
     cats.forEach(cat => {
@@ -107,7 +106,7 @@ function displayProducts(category = 'All') {
         if (filtered.length > 0) {
             htmlContent += `<div class="col-span-full mt-10 mb-6"><h2 class="text-xl md:text-3xl font-black italic uppercase border-l-4 border-[#E72229] pl-3 text-black">${cat}</h2></div>`;
             htmlContent += filtered.map(p => {
-                const needsModal = ["Pizza", "Signature Pizza", "Hot Wings", "Nuggets", "Chicken Strips", "Pizza Deals"].includes(p.category) || (p.category === "Fries" && p.name !== "Loaded Fries");
+                const needsModal = ["Eid Deals, Pizza", "Signature Pizza", "Hot Wings", "Nuggets", "Chicken Strips", "Pizza Deals"].includes(p.category) || (p.category === "Fries" && p.name !== "Loaded Fries");
                 return `
                 <div class="bg-white p-4 rounded-[30px] shadow-sm border border-gray-100 flex flex-col justify-between">
                     <div class="h-32 md:h-48 flex items-center justify-center mb-3"><img src="${p.image}" class="max-h-full object-contain" onerror="this.src='https://via.placeholder.com/300?text=Food'"></div>
